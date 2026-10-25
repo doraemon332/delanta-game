@@ -2,11 +2,11 @@
 
 HD-2D 像素風網頁遊戲，改編自 MUD《Delanta》與原版 EnvyMUD 世界。
 
-原始的《Delanta》MUD 寫於 **1996 年**——作者還在念高中的時候。當年以 EnvyMUD 為底子改編，作者親手做了中文化，並加入了 OLC（線上創造系統）。30 年後的 2026 年，再把它重新改版成這款 HD-2D 網頁遊戲。
+原始的《Delanta》MUD 寫於 **1996 年**——作者還在念高中的時候，當年以 EnvyMUD 為底子改編，作者親手做了中文化，並加入了 OLC（線上創造系統）。30 年後的 2026 年，再把它重新改版成這款 HD-2D 網頁遊戲。
 
 ## 玩法
 
-**線上直接玩：https://doragonia332.github.io/delanta-game/**（GitHub Pages，免安裝）
+**線上直接玩**：[https://doragonia332.github.io/delanta-game/](https://doragonia332.github.io/delanta-game/)（GitHub Pages，免安裝）
 
 或下載後用瀏覽器打開 `index.html` 即可遊玩。
 
@@ -35,7 +35,7 @@ The original *Delanta* MUD was created in **1996**, when the author was in high 
 
 ## How to play
 
-**Play online: https://doragonia332.github.io/delanta-game/** (GitHub Pages, no install needed)
+**Play online**: [https://doragonia332.github.io/delanta-game/](https://doragonia332.github.io/delanta-game/) (GitHub Pages, no install needed)
 
 Or download the repo and open `index.html` in a browser.
 
