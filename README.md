@@ -2,7 +2,7 @@
 
 HD-2D 像素風網頁遊戲，改編自 MUD《Delanta》與原版 EnvyMUD 世界。
 
-原始的《Delanta》MUD 寫於 **1996 年**——作者還在念高中的時候。30 年後的 2026 年，把它重新改版成這款 HD-2D 網頁遊戲。
+原始的《Delanta》MUD 寫於 **1996 年**——作者還在念高中的時候。當年以 EnvyMUD 為底子改編，作者親手做了中文化，並加入了 OLC（線上創造系統）。30 年後的 2026 年，再把它重新改版成這款 HD-2D 網頁遊戲。
 
 ## 玩法
 
@@ -31,7 +31,7 @@ HD-2D 像素風網頁遊戲，改編自 MUD《Delanta》與原版 EnvyMUD 世界
 
 An HD-2D pixel-art web game adapted from the MUD *Delanta* and the original EnvyMUD world.
 
-The original *Delanta* MUD was written in **1996**, when the author was in high school. Thirty years later, in 2026, it has been remade as this HD-2D web game.
+The original *Delanta* MUD was created in **1996**, when the author was in high school. Built on EnvyMUD, it was localized into Chinese by the author, who also added OLC (Online Creation). Thirty years later, in 2026, it has been remade as this HD-2D web game.
 
 ## How to play
 
