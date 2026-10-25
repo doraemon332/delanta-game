@@ -212,6 +212,44 @@
       .subitem:disabled{opacity:.35; cursor:default;}
       .subitem .tag{font-size:11.5px; color:var(--shield);}
       .subitem .tag.owned{color:var(--gold-bright);}
+      /* ---------- LoL 式戰鬥列（走位戰場） ---------- */
+      #lolbar{position:absolute; left:50%; transform:translateX(-50%); bottom:8px; z-index:8; display:none; align-items:stretch; gap:8px; background:var(--panel); border:1px solid var(--gold); border-radius:8px; padding:7px 9px; box-shadow:0 10px 30px rgba(0,0,0,.6); max-width:calc(100% - 16px);}
+      body.arena #lolbar{display:flex;}
+      body.arena #bpanel{display:none;}
+      .lol-stats{display:flex; flex-direction:column; justify-content:center; gap:4px; min-width:106px;}
+      .lol-bar{position:relative; height:13px; background:#241a10; border:1px solid #57452a; border-radius:3px; overflow:hidden;}
+      .lol-bar > i{position:absolute; top:0; left:0; bottom:0; width:100%; background:var(--hp); display:block; transition:width .25s ease;}
+      .lol-bar.mp > i{background:#7fb7d9;}
+      .lol-bar > span{position:absolute; inset:0; font-size:9.5px; line-height:13px; text-align:center; color:#fff; text-shadow:0 1px 2px #000; letter-spacing:.04em;}
+      .lol-skills{display:flex; gap:6px;}
+      .lol-btn{position:relative; width:52px; min-height:48px; background:rgba(255,244,214,.05); color:var(--ink); border:1px solid #57452a; border-radius:6px; font:inherit; cursor:pointer; padding:3px 2px 2px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1px;}
+      .lol-btn:hover:not(:disabled){border-color:var(--gold-bright); color:#fff3d0;}
+      .lol-btn:disabled{opacity:.38; cursor:default;}
+      .lol-btn > b{position:absolute; top:2px; left:5px; font-size:10px; color:var(--gold-bright);}
+      .lol-btn .lol-nm{font-size:12.5px; font-weight:700; letter-spacing:.05em; line-height:1.15;}
+      .lol-btn .lol-sub{font-size:9.5px; color:var(--ink-dim); line-height:1.15;}
+      .lol-btn .lol-cd{position:absolute; inset:0; display:none; align-items:center; justify-content:center; background:rgba(8,6,3,.72); color:#ffd34f; font-size:19px; font-weight:900; border-radius:6px;}
+      .lol-btn.cd .lol-cd{display:flex;}
+      .lol-side{display:flex; gap:6px;}
+      .lol-btn.sm{width:47px;}
+      @media (max-width:560px){ .lol-btn{width:43px; min-height:44px;} .lol-btn.sm{width:39px;} .lol-stats{min-width:82px;} .lol-btn .lol-nm{font-size:11px;} #lolbar{gap:5px; padding:6px 6px;} .lol-skills,.lol-side{gap:4px;} }
+      /* ---------- 世界之門選單（跳關區） ---------- */
+      #gateov .gate-card{max-width:600px; width:min(94vw,600px); text-align:left; max-height:100%; display:flex; flex-direction:column; padding:20px 22px;}
+      #gateov h2, #gateov .c-kicker{text-align:center;}
+      .gate-note{font-size:12.5px; color:var(--ink-dim); text-align:center; margin-top:6px; line-height:1.6;}
+      #gate-list{overflow-y:auto; margin-top:12px; padding-right:4px; scrollbar-width:thin; min-height:0;}
+      #gate-list::-webkit-scrollbar{width:7px;}
+      #gate-list::-webkit-scrollbar-thumb{background:#57452a; border-radius:4px;}
+      .gate-item{display:block; width:100%; text-align:left; background:rgba(255,244,214,.04); color:var(--ink); border:1px solid #57452a; border-radius:8px; font:inherit; padding:10px 13px; margin-bottom:7px; cursor:pointer;}
+      .gate-item:hover:not(:disabled){border-color:var(--gold-bright); background:rgba(236,210,143,.10);}
+      .gate-item .g-top{display:flex; justify-content:space-between; align-items:baseline; gap:10px;}
+      .gate-item .g-name{font-size:16px; font-weight:900; letter-spacing:.04em; color:#fff3d0;}
+      .gate-item .g-lv{font-size:12px; color:var(--shield); white-space:nowrap;}
+      .gate-item .g-tag{font-size:10.5px; color:#14100a; background:var(--gold-bright); border-radius:3px; padding:1px 6px; font-weight:900; margin-left:7px; vertical-align:2px; letter-spacing:.05em;}
+      .gate-item .g-tag.orphan{background:#9fd8e8;}
+      .gate-item .g-intro{font-size:12px; color:var(--ink-dim); line-height:1.5; margin-top:3px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;}
+      .gate-item.here{opacity:.55; cursor:default;}
+      .gate-foot{display:flex; gap:8px; justify-content:center; margin-top:12px; flex-wrap:wrap;}
       /* ---------- title ---------- */
       #title{
         position:absolute; inset:0; z-index:10; display:flex; flex-direction:column;
@@ -439,6 +477,18 @@
         #hud .hpnum{font-size:10px;}
         #sysbtns{max-width:52vw;}
       }
+      /* 難度模式（現代／真實） */
+      .modechip { font-size: 10px; font-weight: 700; letter-spacing: .08em; padding: 1px 7px; border-radius: 999px; background: #2e7d4f; color: #eafff2; margin-left: 8px; vertical-align: 2px; }
+      .modechip.real { background: #a03d2d; color: #ffe9e4; }
+      #modeov { z-index: 80; }
+      #modeov .mode-card { max-width: 430px; }
+      .mode-sub { font-size: 13px; color: var(--ink-dim); line-height: 1.6; margin: 4px 0 12px; }
+      .mode-opt { display: block; width: 100%; text-align: left; margin: 0 0 10px; padding: 13px 15px; border-radius: 12px; border: 2px solid #57452a; background: var(--panel2); color: var(--ink); cursor: pointer; font: inherit; }
+      .mode-opt:hover, .mode-opt:active { border-color: var(--gold); }
+      .mode-opt.warn { border-color: #8a4a3a; }
+      .mode-opt .mode-name { display: block; font-size: 17px; font-weight: 800; margin-bottom: 5px; }
+      .mode-opt .mode-desc { display: block; font-size: 12.5px; line-height: 1.65; color: var(--ink-dim); }
+      .mode-note { font-size: 12px; color: var(--ink-dim); line-height: 1.6; margin: 2px 0 0; }
     </style>
   </head>
   <body>
@@ -449,7 +499,7 @@
         <canvas id="plates" width="480" height="270"></canvas>
 
         <div id="hud">
-          <div class="row1"><span class="pname" id="hud-name">冒險者</span><span class="lv">Lv <span id="hud-lv">1</span></span><span class="gold"><span data-i="hud.gold">金幣</span> <b id="hud-gold">0</b> G</span></div>
+          <div class="row1"><span class="pname" id="hud-name">冒險者</span><span class="lv">Lv <span id="hud-lv">1</span></span><span class="modechip" id="hud-mode">現代</span><span class="gold"><span data-i="hud.gold">金幣</span> <b id="hud-gold">0</b> G</span></div>
           <div class="bar" id="hud-hpbar"><i id="hud-hp" style="width:100%"></i></div>
           <div class="hpnum">HP <span id="hud-hpnum">34 / 34</span>　<span data-i="hud.weapon">武器</span> <span id="hud-wpn">初級短劍</span><span id="hud-pose"></span></div>
           <div class="bar expbar"><i id="hud-exp" style="width:0%"></i></div>
@@ -483,6 +533,24 @@
             </div>
             <div id="cmdmenu"></div>
             <div id="submenu"><div class="subt" id="submenu-title"></div><div id="submenu-items"></div></div>
+          </div>
+          <div id="lolbar">
+            <div class="lol-stats">
+              <div class="lol-bar"><i id="lol-hp"></i><span id="lol-hpnum"></span></div>
+              <div class="lol-bar mp"><i id="lol-mp"></i><span id="lol-mpnum"></span></div>
+            </div>
+            <div class="lol-skills">
+              <button class="lol-btn" id="lol-q" type="button"><b>Q</b><span class="lol-nm"></span><span class="lol-sub"></span><span class="lol-cd"></span></button>
+              <button class="lol-btn" id="lol-w" type="button"><b>W</b><span class="lol-nm"></span><span class="lol-sub"></span><span class="lol-cd"></span></button>
+              <button class="lol-btn" id="lol-e" type="button"><b>E</b><span class="lol-nm"></span><span class="lol-sub"></span><span class="lol-cd"></span></button>
+              <button class="lol-btn" id="lol-r" type="button"><b>R</b><span class="lol-nm"></span><span class="lol-sub"></span><span class="lol-cd"></span></button>
+            </div>
+            <div class="lol-side">
+              <button class="lol-btn sm" id="lol-potion" type="button"><b>1</b><span class="lol-nm"></span><span class="lol-sub"></span></button>
+              <button class="lol-btn sm" id="lol-weapon" type="button"><span class="lol-nm"></span><span class="lol-sub"></span></button>
+              <button class="lol-btn sm" id="lol-atk" type="button"><span class="lol-nm"></span><span class="lol-sub"></span></button>
+              <button class="lol-btn sm" id="lol-flee" type="button"><span class="lol-nm"></span><span class="lol-sub"></span></button>
+            </div>
           </div>
           <div id="partybar"></div>
         </div>
@@ -521,6 +589,7 @@
               <div><span data-i="menu.armor">防具</span><b id="m-armor">無</b></div>
               <div><span data-i="menu.shield">盾</span><b id="m-shield">無</b></div>
               <div><span data-i="menu.flag">戰旗</span><b id="m-flag">無</b></div>
+              <div><span id="m-modelabel">模式</span><b id="m-mode">現代模式</b></div>
               <div><span data-i="menu.potion">癒傷藥</span><b id="m-potion">×3</b></div>
             </div>
             <button class="tbtn" id="btn-menu-close" type="button" data-i="ui.backToGame">回到遊戲</button>
@@ -543,6 +612,19 @@
           </div>
         </div>
 
+
+        <div class="overlay" id="gateov">
+          <div class="card gate-card">
+            <div class="c-kicker">世 界 之 門</div>
+            <h2 style="font-size:24px;">選擇要前往的世界</h2>
+            <div class="gate-note" id="gate-note"></div>
+            <div id="gate-list"></div>
+            <div class="gate-foot">
+              <button class="mpbtn" id="gate-heal" type="button" style="display:none;"></button>
+              <button class="mpbtn" id="gate-close" type="button">關閉</button>
+            </div>
+          </div>
+        </div>
 
         <div class="overlay" id="mpov">
           <div class="card">
@@ -635,6 +717,21 @@
       </div>
     </div>
 
+<div class="overlay" id="modeov">
+  <div class="card mode-card">
+    <h2 id="mode-title" style="font-size:22px;">選擇難度模式</h2>
+    <p class="mode-sub" id="mode-sub"></p>
+    <button class="mode-opt" id="mode-modern" type="button">
+      <span class="mode-name" id="mode-modern-name"></span>
+      <span class="mode-desc" id="mode-modern-desc"></span>
+    </button>
+    <button class="mode-opt warn" id="mode-real" type="button">
+      <span class="mode-name" id="mode-real-name"></span>
+      <span class="mode-desc" id="mode-real-desc"></span>
+    </button>
+    <p class="mode-note" id="mode-note"></p>
+  </div>
+</div>
 <div class="overlay" id="nameov">
           <div class="card">
             <div class="c-kicker" data-i="name.kicker">旅 人 之 名</div>
@@ -707,6 +804,8 @@ var STRANGE_DESC = "一隻奇特的生物（strange mob）站在這裡，尋找�
 
 var WEAPONS = {
   sword1:  { name: "初級短劍", type: "sword",  typeName: "劍", power: 6 },
+  ssword:  { name: "短劍", type: "sword",  typeName: "劍", power: 9 },
+  subsword:{ name: "配發劍", type: "sword",  typeName: "劍", power: 5 },
   sword2:  { name: "初級長劍", type: "sword",  typeName: "劍", power: 11 },
   hammer1: { name: "初級短槌", type: "hammer", typeName: "槌", power: 8 },
   club1:   { name: "初級短棍", type: "club",   typeName: "棍", power: 5 },
@@ -1292,6 +1391,7 @@ function collides(nx, ny) {
     obs.push({ x: 240, y: 120, rx: 30, ry: 10 });
     obs.push({ x: 300, y: 128, r: 10 });
   }
+  if (G.room === 3001) obs.push({ x: 396, y: 146, r: 13 });   /* 村口世界之門 */
   if (room.scene === "deadgate" && !B.gateOpen) { if (ny < 126 && nx > 188 && nx < 292) return true; }
   for (var j = 0; j < obs.length; j++) {
     var o = obs[j];
@@ -1511,6 +1611,8 @@ function tryInteract() {
   }
   /* 辦事處小妹 talk → 復活 */
   if (G.room === 2003 && near(240, 140, 46)) { talkGirl(); return; }
+  /* 村口世界之門（跳關區） */
+  if (G.room === 3001 && near(396, 146, 36)) { openWorldGate(); return; }
   /* 村口木牌 */
   if (G.room === 3001 && near(240, 128, 28)) {
     showDialog([{ text: t("npc.villageSign") }]);
@@ -1637,7 +1739,7 @@ function drawExplorePlates(tt) {
     if (ch) drawPlate(ch.x, ch.y - 36, G.chests[G.room] ? t("plate.chestEmpty") : t("plate.chest"), near(ch.x, ch.y - 4, 28));
     if (B.strong && !G.strongDefeated) drawPlate(B.strong.x, B.strong.y - 46, ENEMIES.strong.name, distP(B.strong.x, B.strong.y) < 55 * 55);
   }
-  if (scene === "village") drawPlate(240, 102, t("plate.villageSign"), near(240, 128, 28));
+  if (scene === "village") { drawPlate(240, 102, t("plate.villageSign"), near(240, 128, 28)); if (G.room === 3001) drawPlate(396, 82, t("gate.worldName"), near(396, 146, 36)); }
   if (scene === "road") drawPlate(330, 150, t("plate.sign"), near(330, 182, 30));
   if (scene === "deadgate") drawPlate(240, 6, t("plate.gate"), near(240, 122, 42));
   if (scene === "temple") drawPlate(300, 80, t("npc.guardName"), near(300, 128, 32));
@@ -1799,6 +1901,7 @@ function renderExplore(t) {
   if (scene === "village") {
     items.push({ y: 238, fn: function () { drawTree(40, 238, 1.1, true); } });
     items.push({ y: 234, fn: function () { drawTree(442, 234, 1.1, false); } });
+    if (G.room === 3001) items.push({ y: 152, fn: function () { ctx.save(); ctx.translate(156, 32); drawWorldGate(t); ctx.restore(); } });
   }
   if (scene === "road") {
     var rt = TREES.road;
@@ -2506,10 +2609,12 @@ function stockInteract() {
   if (room[3].d && Math.abs(player.x - 72) < 32 && Math.abs(player.y - 138) < 30) { showDialog([{ text: t("stock.stairsDown") }]); return; }
 }
 function openReturnGate() {
-  showDialog([{ who: t("gate.returnName"), text: t("gate.returnText"), choices: [
-    { label: t("gate.returnBtn"), fn: function () {
+  var toVillage = typeof G !== "undefined" && G && G.gateFrom === "village";
+  showDialog([{ who: t("gate.returnName"), text: t(toVillage ? "gate.returnTextVillage" : "gate.returnText"), choices: [
+    { label: t(toVillage ? "gate.returnBtnVillage" : "gate.returnBtn"), fn: function () {
       travelLockUntil = performance.now() + 800;
-      fadeSwap(function () { enterStockRoom(3054, { x: 240, y: 246, dir: "up" }); });
+      if (toVillage) fadeSwap(function () { enterRoom(3001, { x: 240, y: 208, dir: "up" }); });
+      else fadeSwap(function () { enterStockRoom(3054, { x: 240, y: 246, dir: "up" }); });
     } },
     { label: t("gate.later"), fn: function () {} }
   ] }]);
@@ -4909,6 +5014,8 @@ function t(key, params) {
 }
 var WEAPON_I18N = {
   sword1: { zh: "初級短劍", en: "Novice Shortsword", ja: "初心の短剣", ko: "초보 단검" },
+  ssword: { zh: "短劍", en: "Short Sword", ja: "短剣", ko: "숏소드" },
+  subsword: { zh: "配發劍", en: "Sub Issue Sword", ja: "支給の剣", ko: "지급 검" },
   sword2: { zh: "初級長劍", en: "Novice Longsword", ja: "初心の長剣", ko: "초보 장검" },
   hammer1: { zh: "初級短槌", en: "Novice Mace", ja: "初心のメイス", ko: "초보 메이스" },
   club1: { zh: "初級短棍", en: "Novice Club", ja: "初心の棍棒", ko: "초보 곤봉" },
@@ -6562,6 +6669,1107 @@ setInterval(function () {
   } else player.moving = false;
 }, 400);
 
+</script>
+<script>
+"use strict";
+/* =========================================================
+   LoL 式操作層（疊加）：滑鼠/觸控點擊移動與互動、落點標記、
+   即時走位戰場（單人 BT + 多人 PB/房主同步）、世界之門跳關選單。
+   移動沿用既有 moveStep/stockMoveStep（以 dirDown/dirUp 驅動），
+   傷害/技能/破防/掉落/結算全部沿用既有系統，只改「操作與走位」。
+   ========================================================= */
+/* ---------- 新增字串（四語，比照既有政策） ---------- */
+STR["gate.hint"] = { zh: "點一個世界即可傳送過去；每個世界的入口都有一座歸途之門，可以隨時回來。主線步行路線（怪奇森林 → 德蘭塔村 → 村外大路 → 中土城）照舊能走。", en: "Tap a world to travel there. Every world's entrance has a return gate back. The main walking route (Forest of Wonders → Delanta Village → the great road → Midgaard) still works as before.", ja: "タップでその世界へ移動。各ワールドの入口には帰路の扉があり、いつでも戻れます。メインの徒歩ルート（怪奇の森→デランタ村→大通り→ミッドガード）も今まで通り歩けます。", ko: "탭하면 그 세계로 이동합니다. 각 세계 입구에는 귀환의 문이 있어 언제든 돌아올 수 있습니다. 메인 도보 루트(괴기한 숲 → 델란타 마을 → 큰길 → 미드가드)도 예전처럼 걸을 수 있습니다." };
+STR["gate.recLv"] = { zh: "建議等級", en: "Rec. Lv", ja: "推奨Lv", ko: "추천 Lv" };
+STR["gate.main"] = { zh: "主線", en: "Main Route", ja: "メイン", ko: "메인" };
+STR["gate.orphan"] = { zh: "秘境", en: "Hidden", ja: "秘境", ko: "비경" };
+STR["gate.noMobs"] = { zh: "無怪物", en: "No monsters", ja: "モンスターなし", ko: "몬스터 없음" };
+STR["gate.here"] = { zh: "目前所在", en: "You are here", ja: "現在ここ", ko: "현재 위치" };
+STR["gate.loading"] = { zh: "世界資料還在載入中，稍等一下再試。", en: "World data is still loading — try again in a moment.", ja: "ワールドデータ読み込み中。少し待ってからもう一度お試しください。", ko: "월드 데이터를 불러오는 중입니다. 잠시 후 다시 시도하세요." };
+STR["gate.returnTextVillage"] = { zh: "銀白色的門扉靜靜流轉，門後正是德蘭塔村入口的世界之門。", en: "The silver-white gate turns silently; beyond it lies the World Gate at Delanta Village Entrance.", ja: "銀白色の扉が静かに巡っている。扉の向こうはデランタ村入口の世界の扉だ。", ko: "은백색 문이 조용히 돌고 있다. 문 너머는 델란타 마을 입구의 세계의 문이다." };
+STR["gate.returnBtnVillage"] = { zh: "回到德蘭塔村", en: "Return to Delanta Village", ja: "デランタ村へ戻る", ko: "델란타 마을로 돌아가기" };
+STR["lol.berserk"] = { zh: "狂暴", en: "Berserk", ja: "狂暴", ko: "광폭" };
+STR["lol.weapon"] = { zh: "換武器", en: "Weapon", ja: "武器変更", ko: "무기 교체" };
+STR["lol.attack"] = { zh: "鎖定攻擊", en: "Attack", ja: "攻撃指定", ko: "공격 지정" };
+STR["ui.note"] = { zh: "改編自 EnvyMUD 世界・怪奇森林 → 德蘭塔村 → 村外大路 → 中土城 Midgaard 全世界<br/>滑鼠點擊移動／點怪・NPC・寶箱自動走過去互動・戰鬥點地面走位、QWER 技能・方向鍵 / WASD 亦可・手機點按同樣有效",
+  en: "Adapted from the EnvyMUD world: Forest of Wonders → Delanta Village → the great road → all of Midgaard<br/>Click to move · click monsters / NPCs / chests to walk over and interact · in battle, click the ground to reposition, QWER for skills · arrow keys / WASD also work · taps work the same on phones",
+  ja: "EnvyMUDの世界を移植：怪奇の森 → デランタ村 → 村外の大通り → ミッドガード全域<br/>クリックで移動・モンスター／NPC／宝箱をクリックで近づいて調べる・戦闘中は地面クリックで位置取り、QWERでスキル・方向キー / WASD も可・スマホのタップも同様",
+  ko: "EnvyMUD 세계 이식: 괴기한 숲 → 델란타 마을 → 마을 밖 큰길 → 미드가드 전역<br/>클릭으로 이동 · 몬스터/NPC/상자를 클릭하면 다가가서 상호작용 · 전투 중에는 땅을 클릭해 위치 조정, QWER 스킬 · 방향키/WASD도 가능 · 모바일 탭도 동일" };
+(function () { var tn = document.querySelector("#title .t-note"); if (tn) tn.innerHTML = t("ui.note"); })();
+
+/* ---------- 共用小工具 ---------- */
+var LOL = { nav: null, marker: null, curDir: null, stuckT: 0, altAxisUntil: 0, lastX: 0, lastY: 0, lastTick: performance.now(), gateFrom: "temple", posSentAt: 0 };
+LOL.RANGE = 44;
+function lolClamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+function lolDist(x1, y1, x2, y2) { var dx = x2 - x1, dy = y2 - y1; return Math.sqrt(dx * dx + dy * dy); }
+
+/* ---------- 點擊導航（探索）：以方向鍵堆疊驅動既有移動 ---------- */
+function lolSetDir(d) {
+  if (LOL.curDir === d) return;
+  if (LOL.curDir) dirUp(LOL.curDir);
+  LOL.curDir = d;
+  if (d) dirDown(d);
+}
+function lolCancelNav() {
+  if (LOL.curDir) { dirUp(LOL.curDir); LOL.curDir = null; }
+  LOL.nav = null; LOL.stuckT = 0;
+}
+function lolNavTo(x, y, action, dir, stopR) {
+  lolCancelNav();
+  LOL.nav = { x: x, y: y, action: action || null, dir: dir || null, follow: null, stopR: stopR || 6, roomKey: String(G.room), t0: performance.now() };
+  LOL.lastX = player.x; LOL.lastY = player.y;
+}
+function lolNavFollow(fn, action, stopR, faceFn) {
+  lolCancelNav();
+  LOL.nav = { x: 0, y: 0, action: action || null, dir: null, follow: fn, faceFn: faceFn || null, stopR: stopR || 6, roomKey: String(G.room), t0: performance.now() };
+  LOL.lastX = player.x; LOL.lastY = player.y;
+}
+function lolArriveNav() {
+  var nav = LOL.nav; if (!nav) return;
+  var act = nav.action, dir = nav.dir;
+  if (nav.faceFn) { var tp = nav.faceFn(); if (tp) { var dx = tp.x - player.x, dy = tp.y - player.y; dir = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up"); } }
+  lolCancelNav();
+  if (dir) player.dir = dir;
+  if (act) act();
+}
+function lolUserDirHeld() {
+  for (var k in keys) if (keys[k] && k !== LOL.curDir) return true;
+  return false;
+}
+function lolNavTick(dt) {
+  var nav = LOL.nav;
+  if (!nav) return;
+  if (mode !== "explore" || !G || String(G.room) !== nav.roomKey) { lolCancelNav(); return; }
+  if (lolUserDirHeld()) { lolCancelNav(); return; }
+  var tp = nav.follow ? nav.follow() : nav;
+  if (!tp) { lolCancelNav(); return; }
+  var dx = tp.x - player.x, dy = tp.y - player.y;
+  var dist = Math.sqrt(dx * dx + dy * dy);
+  if (dist <= (nav.stopR || 6)) { lolArriveNav(); return; }
+  if (performance.now() - nav.t0 > 7000) { if (nav.action && dist < 54) lolArriveNav(); else lolCancelNav(); return; }
+  var prefX = Math.abs(dx) >= Math.abs(dy);
+  if (performance.now() < LOL.altAxisUntil) prefX = !prefX;
+  var dir;
+  if (prefX) dir = Math.abs(dx) < 3 ? (dy > 0 ? "down" : "up") : (dx > 0 ? "right" : "left");
+  else dir = Math.abs(dy) < 3 ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up");
+  lolSetDir(dir);
+  var moved = lolDist(LOL.lastX, LOL.lastY, player.x, player.y);
+  if (moved < 0.25) { LOL.stuckT += dt; if (LOL.stuckT > 0.26) { LOL.altAxisUntil = performance.now() + 450; LOL.stuckT = 0; } }
+  else LOL.stuckT = 0;
+  LOL.lastX = player.x; LOL.lastY = player.y;
+}
+/* 最近可達點：被擋住時螺旋搜尋可走位置 */
+function lolNearestWalkable(x, y, stock) {
+  function free(px2, py2) { var c = stock ? stockCollide(px2, py2) : collides(px2, py2); return c === false; }
+  if (free(x, y)) return { x: x, y: y };
+  for (var r = 6; r <= 72; r += 6) {
+    for (var a = 0; a < 12; a++) {
+      var px2 = x + Math.cos(a / 12 * Math.PI * 2) * r, py2 = y + Math.sin(a / 12 * Math.PI * 2) * r * 0.8;
+      if (free(px2, py2)) return { x: px2, y: py2 };
+    }
+  }
+  return { x: player.x, y: player.y };
+}
+/* 本地房間可互動點（與 tryInteract 的判定點/半徑對齊，stand 為站位、dir 為面向） */
+function lolLocalPoints() {
+  var pts = [];
+  var ch = (typeof CHESTS !== "undefined") ? CHESTS[G.room] : null;
+  if (ch) pts.push({ x: ch.x, y: ch.y, sx: ch.x, sy: ch.y + 24, dir: "up", r: 32 });
+  if (G.room === 1001) pts.push({ x: 330, y: 188, sx: 330, sy: 213, dir: "up", r: 36 });
+  if (G.room === 2001 && !B.gateOpen) pts.push({ x: 240, y: 122, sx: 240, sy: 147, dir: "up", r: 42 });
+  if (G.room === 2002) {
+    pts.push({ x: 78, y: 205, sx: 78, sy: 180, dir: "down", r: 32 });
+    pts.push({ x: 300, y: 128, sx: 300, sy: 153, dir: "up", r: 36 });
+  }
+  if (G.room === 2003) {
+    pts.push({ x: 60, y: 140, sx: 60, sy: 165, dir: "up", r: 32 });
+    pts.push({ x: 150, y: 205, sx: 150, sy: 180, dir: "down", r: 32 });
+    pts.push({ x: 240, y: 140, sx: 240, sy: 166, dir: "up", r: 42 });
+  }
+  if (G.room === 3001) {
+    pts.push({ x: 240, y: 128, sx: 240, sy: 153, dir: "up", r: 32 });
+    pts.push({ x: 396, y: 146, sx: 396, sy: 171, dir: "up", r: 38 });
+  }
+  if (G.room === 3002) pts.push({ x: 330, y: 182, sx: 330, sy: 207, dir: "up", r: 34 });
+  return pts;
+}
+function lolLocalClick(gx, gy) {
+  var room = ROOMS[G.room]; if (!room) return;
+  if (room.exits.n && gx > 192 && gx < 288 && gy < 140) { lolNavTo(240, 120, null); return; }
+  if (room.exits.s && gx > 192 && gx < 288 && gy > 238) { lolNavTo(240, 256, null); return; }
+  if (B.strong && !G.strongDefeated && lolDist(gx, gy, B.strong.x, B.strong.y) < 42) {
+    LOL.marker.kind = "atk";
+    lolNavFollow(function () { return (B.strong && !G.strongDefeated) ? { x: B.strong.x, y: B.strong.y } : null; }, null, 9);
+    return;
+  }
+  var pts = lolLocalPoints();
+  for (var i = 0; i < pts.length; i++) {
+    var p = pts[i];
+    if (lolDist(gx, gy, p.x, p.y) < p.r) {
+      LOL.marker.kind = "use";
+      (function (pp) { lolNavTo(pp.sx, pp.sy, function () { tryInteract(); }, pp.dir, 5); })(p);
+      return;
+    }
+  }
+  var w = lolNearestWalkable(gx, gy, false);
+  lolNavTo(w.x, w.y, null);
+}
+function lolStockClick(gx, gy) {
+  var room = sRoom(stockVnum()); if (!room) return;
+  var v = stockVnum(), ex = room[3];
+  if ((v === 3054 || orphanEntryHere() || (G.gateBack && v === G.gateBack)) && lolDist(gx, gy, 240, 118) < 42) {
+    LOL.marker.kind = "use";
+    lolNavTo(240, 143, function () { stockInteract(); }, "up", 5);
+    return;
+  }
+  if (ex.u && lolDist(gx, gy, 408, 138) < 36) { lolNavTo(408, 138, null); return; }
+  if (ex.d && lolDist(gx, gy, 72, 138) < 36) { lolNavTo(72, 138, null); return; }
+  if (v === 3005 && lolDist(gx, gy, 110, 239) < 36) { lolNavTo(110, 239, null); return; }
+  if (ex.n && gx > 192 && gx < 288 && gy < 140) { lolNavTo(240, 120, null); return; }
+  if (ex.s && gx > 192 && gx < 288 && gy > 238) { lolNavTo(240, 256, null); return; }
+  if (ex.w && gx < 42 && gy > 162 && gy < 246) { lolNavTo(24, 204, null); return; }
+  if (ex.e && gx > 438 && gy > 162 && gy < 246) { lolNavTo(456, 204, null); return; }
+  for (var i = 0; i < S.mobs.length; i++) {
+    var m = S.mobs[i];
+    if (lolDist(gx, gy, m.x, m.y) < 32) {
+      if (m.npc) {
+        LOL.marker.kind = "use";
+        (function (mm) {
+          lolNavFollow(
+            function () { return S.mobs.indexOf(mm) >= 0 ? { x: mm.x, y: mm.y } : null; },
+            function () { stockInteract(); },
+            25,
+            function () { return S.mobs.indexOf(mm) >= 0 ? { x: mm.x, y: mm.y } : null; }
+          );
+        })(m);
+      } else {
+        LOL.marker.kind = "atk";
+        (function (mm) {
+          lolNavFollow(function () { return S.mobs.indexOf(mm) >= 0 ? { x: mm.x, y: mm.y } : null; }, null, 3);
+        })(m);
+      }
+      return;
+    }
+  }
+  var w = lolNearestWalkable(gx, gy, true);
+  lolNavTo(w.x, w.y, null);
+}
+function lolExploreClick(gx, gy) {
+  LOL.marker = { x: gx, y: gy, t0: performance.now(), kind: "move" };
+  if (isStockRoom()) lolStockClick(gx, gy); else lolLocalClick(gx, gy);
+}
+/* ---------- 落點標記繪製 ---------- */
+function lolDrawMarker() {
+  var mk = LOL.marker; if (!mk) return;
+  var age = (performance.now() - mk.t0) / 1000;
+  if (age > 0.6) { LOL.marker = null; return; }
+  var col = mk.kind === "atk" ? "#ff6a5e" : mk.kind === "use" ? "#ffd34f" : "#8fe388";
+  var p = age / 0.6;
+  ctx.save();
+  ctx.globalAlpha = 1 - p;
+  ctx.strokeStyle = col; ctx.lineWidth = 2;
+  var r = 4 + p * 15;
+  ctx.beginPath(); ctx.ellipse(mk.x, mk.y, r, r * 0.42, 0, 0, Math.PI * 2); ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(mk.x, mk.y, r * 0.45, r * 0.2, 0, 0, Math.PI * 2); ctx.stroke();
+  var ay = mk.y - 15 + p * 8;
+  ctx.fillStyle = col;
+  ctx.beginPath(); ctx.moveTo(mk.x - 5, ay); ctx.lineTo(mk.x + 5, ay); ctx.lineTo(mk.x, ay + 7); ctx.closePath(); ctx.fill();
+  ctx.restore();
+  if (LOL.nav) {
+    var tp = LOL.nav.follow ? LOL.nav.follow() : LOL.nav;
+    if (tp) {
+      ctx.save();
+      ctx.globalAlpha = 0.55 + Math.sin(performance.now() / 130) * 0.25;
+      ctx.fillStyle = col;
+      ctx.translate(tp.x, tp.y);
+      ctx.rotate(Math.PI / 4);
+      ctx.fillRect(-3.4, -3.4, 6.8, 6.8);
+      ctx.restore();
+    }
+  }
+}
+var _lolRenderExploreRaw = renderExplore;
+renderExplore = function (t) { _lolRenderExploreRaw(t); lolDrawMarker(); };
+var _lolRenderStockRaw = renderStock;
+renderStock = function (t) {
+  _lolRenderStockRaw(t);
+  /* 經世界之門抵達的房間：補畫歸途之門（孤兒區入口由原流程繪製） */
+  if (G && G.gateBack && isStockRoom() && stockVnum() === G.gateBack && stockVnum() !== 3054 && !orphanEntryHere()) drawReturnGate(t);
+  lolDrawMarker();
+};
+/* ---------- 點擊輸入（滑鼠 + 觸控 tap；UI 元素不觸發移動） ---------- */
+function lolBattleClick(gx, gy) {
+  if (window.PB && PB.active) {
+    LOL.marker = { x: gx, y: gy, t0: performance.now(), kind: "move" };
+    for (var i = PB.enemies.length - 1; i >= 0; i--) {
+      if (!PB.enemies[i].alive) continue;
+      var ep = PB.epos && PB.epos[i];
+      if (ep && lolDist(gx, gy, ep.x, ep.y - 34) < 54) {
+        PB.engageEi = i; PB.moveT = null; PB.holdPos = false;
+        LOL.marker.kind = "atk"; LOL.marker.x = ep.x; LOL.marker.y = ep.y;
+        return;
+      }
+    }
+    PB.moveT = { x: lolClamp(gx, 28, 452), y: lolClamp(gy, 120, 256) };
+    PB.engageEi = -1; PB.holdPos = true;
+    return;
+  }
+  if (!BT || !BT.arena || BT.over) return;
+  LOL.marker = { x: gx, y: gy, t0: performance.now(), kind: "move" };
+  if (lolDist(gx, gy, BT.ex, BT.ey - 34) < 54) {
+    BT.engage = true; BT.moveT = null;
+    LOL.marker.kind = "atk"; LOL.marker.x = BT.ex; LOL.marker.y = BT.ey;
+  } else {
+    BT.moveT = { x: lolClamp(gx, 28, 452), y: lolClamp(gy, 120, 256) };
+    BT.engage = false;
+  }
+}
+(function () {
+  var scr = document.getElementById("screen");
+  if (!scr) return;
+  function toGame(e) { var r = cv.getBoundingClientRect(); return { x: (e.clientX - r.left) / r.width * VW, y: (e.clientY - r.top) / r.height * VH }; }
+  function uiBlocked(e) { return !!(e.target && e.target.closest && e.target.closest("#hud, #sysbtns, #dialog, #touch, #title, .overlay, #invitebar, #lolbar, #bpanel, #enemyinfo, #partybar")); }
+  scr.addEventListener("pointerdown", function (e) {
+    if (e.button !== undefined && e.button > 0) return;
+    if (uiBlocked(e)) return;
+    try { ac(); } catch (err) {}
+    var p = toGame(e);
+    if (mode === "explore" && G) lolExploreClick(p.x, p.y);
+    else if (mode === "battle") lolBattleClick(p.x, p.y);
+  });
+  scr.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+    if (uiBlocked(e)) return;
+    var p = toGame(e);
+    if (mode === "explore" && G) lolExploreClick(p.x, p.y);
+    else if (mode === "battle") lolBattleClick(p.x, p.y);
+  });
+})();
+
+/* ---------- 單人戰鬥：走位戰場 ---------- */
+var _lolBbRaw = beginBattle;
+beginBattle = function (def) {
+  _lolBbRaw(def);
+  if (!BT) return;
+  BT.arena = true;
+  BT.ax = player.x; BT.ay = player.y; BT.adir = "down"; BT.amoving = false; BT.awalkT = 0;
+  var sx = null, sy = null, i;
+  if (def.key === "strong" && typeof B !== "undefined" && B.strong) { sx = B.strong.x; sy = B.strong.y; }
+  else if (def.stock && typeof S !== "undefined" && S.mobs) { for (i = 0; i < S.mobs.length; i++) if (S.mobs[i].slot === def.stock.slot) { sx = S.mobs[i].x; sy = S.mobs[i].y; break; } }
+  if (sx == null) { sx = BT.ax + (BT.ax < 240 ? 120 : -120); sy = BT.ay; }
+  BT.ex = lolClamp(sx, 36, 444); BT.ey = lolClamp(sy, 124, 252);
+  if (lolDist(BT.ax, BT.ay, BT.ex, BT.ey) < 56) { BT.ex = lolClamp(BT.ax + (BT.ax < 240 ? 110 : -110), 36, 444); BT.ey = lolClamp(BT.ay + 20, 124, 252); }
+  BT.moveT = null; BT.engage = true; BT.pendingSkill = null;
+  document.body.classList.add("arena");
+  lolRefreshBar();
+};
+var _lolEbRaw = endBattle;
+endBattle = function () { document.body.classList.remove("arena"); _lolEbRaw(); };
+/* 距離閘門：超出攻擊距離時，自動普攻/敵人攻擊計時不觸發（先走進距離） */
+var _lolUbRaw = updateBattle;
+updateBattle = function (dt) {
+  if (BT && BT.arena && !BT.over) {
+    var d = lolDist(BT.ax, BT.ay, BT.ex, BT.ey);
+    if (d > LOL.RANGE) BT.pTimer = Math.min(BT.pTimer, 1.9);
+    if (d > LOL.RANGE + 8) BT.eTimer = Math.min(BT.eTimer, 2.24);
+  }
+  _lolUbRaw(dt);
+};
+var _lolPsRaw = playerStrike;
+playerStrike = function (hits, mult, actName, isSkill) {
+  if (BT && BT.arena && !BT.over && lolDist(BT.ax, BT.ay, BT.ex, BT.ey) > LOL.RANGE + 14) return;
+  _lolPsRaw(hits, mult, actName, isSkill);
+};
+var _lolEsRaw = enemyStrike;
+enemyStrike = function () {
+  if (BT && BT.arena && !BT.over && lolDist(BT.ax, BT.ay, BT.ex, BT.ey) > LOL.RANGE + 30) return;
+  _lolEsRaw();
+};
+var _lolCsRaw = castSkill;
+castSkill = function (s) {
+  if (BT && BT.arena && !BT.over && !BT.__castNow && lolDist(BT.ax, BT.ay, BT.ex, BT.ey) > LOL.RANGE + 10) {
+    BT.pendingSkill = s; BT.engage = true; BT.moveT = null;
+    try { SFX.cursor(); } catch (e) {}
+    return;
+  }
+  _lolCsRaw(s);
+};
+var _lolEdpRaw = enemyDrawPos;
+enemyDrawPos = function () {
+  if (BT && BT.arena) { var k = 0.72 / 0.95; return { x: BT.ex - 50 * k, y: BT.ey - 112 * k, sc: 0.72, fx: BT.ex, fy: BT.ey - 66, tagY: BT.ey - 100 }; }
+  return _lolEdpRaw();
+};
+var _lolAfRaw = addFloat;
+addFloat = function (x, y, text, col) {
+  if (BT && BT.arena && ((x === 336 && y === 112) || (x === 330 && y === 122))) { x = BT.ax; y = BT.ay - 58; }
+  _lolAfRaw(x, y, text, col);
+};
+function lolArenaBlocked(nx, ny) {
+  var c = (typeof isStockRoom === "function" && isStockRoom()) ? stockCollide(nx, ny) : collides(nx, ny);
+  return c === true;
+}
+var lolArrows = {};
+function lolArenaTick(dt) {
+  if (!BT || BT.over) return;
+  var dx = BT.ex - BT.ax, dy = BT.ey - BT.ay;
+  var d = Math.sqrt(dx * dx + dy * dy) || 0.001;
+  if (BT.pendingSkill && d <= LOL.RANGE + 12) {
+    var s = BT.pendingSkill; BT.pendingSkill = null;
+    BT.__castNow = true;
+    try { castSkill(s); } catch (e) {}
+    BT.__castNow = false;
+    if (!BT || BT.over) return;
+    dx = BT.ex - BT.ax; dy = BT.ey - BT.ay; d = Math.sqrt(dx * dx + dy * dy) || 0.001;
+  }
+  var mvx = (lolArrows.ArrowRight ? 1 : 0) - (lolArrows.ArrowLeft ? 1 : 0);
+  var mvy = (lolArrows.ArrowDown ? 1 : 0) - (lolArrows.ArrowUp ? 1 : 0);
+  var tx = null, ty = null;
+  if (mvx || mvy) { BT.moveT = null; BT.engage = false; var ml = Math.sqrt(mvx * mvx + mvy * mvy); tx = BT.ax + mvx / ml * 30; ty = BT.ay + mvy / ml * 30; }
+  else if (BT.moveT) { tx = BT.moveT.x; ty = BT.moveT.y; if (lolDist(BT.ax, BT.ay, tx, ty) < 5) { BT.moveT = null; tx = null; } }
+  else if (BT.engage && d > LOL.RANGE) { tx = BT.ex; ty = BT.ey; }
+  var moving = false;
+  if (tx != null) {
+    var mdx = tx - BT.ax, mdy = ty - BT.ay, md = Math.sqrt(mdx * mdx + mdy * mdy);
+    if (md > 1) {
+      var step = 96 * dt, sx = mdx / md * step, sy = mdy / md * step;
+      var nx = BT.ax + sx, ny = BT.ay + sy;
+      if (!lolArenaBlocked(nx, BT.ay) && lolDist(nx, BT.ay, BT.ex, BT.ey) >= 15) BT.ax = nx;
+      if (!lolArenaBlocked(BT.ax, ny) && lolDist(BT.ax, ny, BT.ex, BT.ey) >= 15) BT.ay = ny;
+      moving = true;
+      BT.adir = Math.abs(mdx) > Math.abs(mdy) ? (mdx > 0 ? "right" : "left") : (mdy > 0 ? "down" : "up");
+    }
+  }
+  BT.amoving = moving;
+  if (moving) BT.awalkT = (BT.awalkT || 0) + dt * 9;
+  if (!moving) BT.adir = Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? "right" : "left") : (dy > 0 ? "down" : "up");
+  if (!BT.dead && BT.stunned <= 0 && d > LOL.RANGE - 2) {
+    var es = BT.key === "strong" ? 84 : 72;
+    var estep = Math.min(d - (LOL.RANGE - 4), es * dt);
+    if (estep > 0) {
+      var enx = BT.ex + dx / d * estep, eny = BT.ey + dy / d * estep;
+      if (!lolArenaBlocked(enx, BT.ey) && lolDist(enx, BT.ey, BT.ax, BT.ay) >= 15) BT.ex = enx;
+      if (!lolArenaBlocked(BT.ex, eny) && lolDist(BT.ex, eny, BT.ax, BT.ay) >= 15) BT.ey = eny;
+      BT.ex = lolClamp(BT.ex, 30, 450); BT.ey = lolClamp(BT.ey, 122, 254);
+    }
+  }
+  BT.ax = lolClamp(BT.ax, 26, 454); BT.ay = lolClamp(BT.ay, 118, 258);
+}
+function lolRenderArena(t) {
+  ctx.clearRect(0, 0, VW, VH);
+  drawBattleBG(t, BT.bgKind || "forest");
+  var shX = BT.shake ? (Math.random() - 0.5) * BT.shake : 0;
+  var shY = BT.shake ? (Math.random() - 0.5) * BT.shake * 0.6 : 0;
+  if (BT.shake) BT.shake *= 0.82; if (BT.shake < 0.4) BT.shake = 0;
+  ctx.save(); ctx.translate(shX, shY);
+  if (BT.moveT) {
+    ctx.save(); ctx.strokeStyle = "#8fe388"; ctx.globalAlpha = 0.85; ctx.lineWidth = 1.6;
+    ctx.beginPath(); ctx.ellipse(BT.moveT.x, BT.moveT.y, 9 + Math.sin(t * 6) * 1.6, 4, 0, 0, Math.PI * 2); ctx.stroke(); ctx.restore();
+  }
+  if (!BT.dead) {
+    ctx.save();
+    ctx.strokeStyle = "#ff5a4e"; ctx.lineWidth = 1.8;
+    ctx.globalAlpha = 0.6 + Math.sin(t * 5) * 0.25;
+    ctx.beginPath(); ctx.ellipse(BT.ex, BT.ey + 2, 25, 8.5, 0, 0, Math.PI * 2); ctx.stroke();
+    ctx.restore();
+  }
+  shadow(BT.ex, BT.ey + 2, 17, 0.35);
+  shadow(BT.ax, BT.ay + 2, 12, 0.35);
+  var intro = Math.min(1, (performance.now() - (BT.t0 || 0)) / 550);
+  var items = [];
+  (function () {
+    var k = 0.72 / 0.95;
+    var elx = (BT.ax >= BT.ex ? 1 : -1) * 10 * (BT.enemyLunge || 0);
+    items.push({ y: BT.ey, fn: function () {
+      ctx.save();
+      ctx.globalAlpha = (BT.dead && BT.hp <= 0 ? 0.3 : 1) * intro;
+      drawMobSprite({ sprite: BT.sprite, hue: BT.hue }, BT.ex - 50 * k + elx - (1 - intro) * 60, BT.ey - 112 * k, 0.72, t, BT.enemyHurt > 0);
+      ctx.restore();
+      var w = 54, hx = BT.ex - w / 2, hy = BT.ey - 112 * k - 13;
+      ctx.save();
+      ctx.fillStyle = "rgba(10,8,4,0.72)"; ctx.fillRect(hx - 1, hy - 1, w + 2, 6);
+      ctx.fillStyle = "#c8563f"; ctx.fillRect(hx, hy, w * Math.max(0, BT.hp / BT.maxHp), 4);
+      if (BT.stunned > 0) { ctx.fillStyle = "#ffd34f"; ctx.font = "10px sans-serif"; ctx.textAlign = "center"; ctx.fillText("★ 暈眩 ★", BT.ex, hy - 4); }
+      ctx.restore();
+    } });
+  })();
+  (function () {
+    var hlx = (BT.ex >= BT.ax ? 1 : -1) * 10 * (BT.heroLunge || 0);
+    items.push({ y: BT.ay, fn: function () {
+      var hurt = BT.heroHurt > 0;
+      if (hurt) { ctx.save(); ctx.globalAlpha = 0.65; }
+      var st = Object.assign({}, HERO_STYLE, { back: BT.adir === "up", side: (BT.adir === "left" || BT.adir === "right") ? BT.adir : null, flip: BT.adir === "left", walk: BT.amoving ? (BT.awalkT || 0) : 0, bob: BT.amoving ? 0 : Math.sin(t * 2.2) * 0.6, swordHand: true });
+      drawFigureFeet(BT.ax + hlx, BT.ay + 1, 2.0, st);
+      if (hurt) ctx.restore();
+    } });
+  })();
+  items.sort(function (a, b) { return a.y - b.y; });
+  items.forEach(function (it) { it.fn(); });
+  ctx.restore();
+  drawSparks(BT.sparks);
+  if (BT.enemyHurt > 0) BT.enemyHurt -= 0.06;
+  if (BT.heroHurt > 0) BT.heroHurt -= 0.06;
+  if (BT.heroLunge > 0) BT.heroLunge = Math.max(0, BT.heroLunge - 0.14);
+  if (BT.enemyLunge > 0) BT.enemyLunge = Math.max(0, BT.enemyLunge - 0.14);
+  for (var f = BT.floats.length - 1; f >= 0; f--) {
+    var fl2 = BT.floats[f]; fl2.t += 0.016;
+    ctx.save();
+    ctx.globalAlpha = Math.max(0, 1 - fl2.t / 1.05);
+    ctx.font = "900 17px 'Noto Sans TC', sans-serif";
+    ctx.textAlign = "center";
+    ctx.lineWidth = 3.4; ctx.strokeStyle = "rgba(20,12,4,0.85)";
+    var fy = fl2.y - fl2.t * 26;
+    ctx.strokeText(fl2.text, fl2.x, fy); ctx.fillStyle = fl2.col; ctx.fillText(fl2.text, fl2.x, fy);
+    ctx.restore();
+    if (fl2.t > 1.05) BT.floats.splice(f, 1);
+  }
+  drawParticles(t, "forest");
+  ctx.drawImage(getVignette(), 0, 0);
+}
+var _lolRbRaw = renderBattle;
+renderBattle = function (t) { if (BT && BT.arena) lolRenderArena(t); else _lolRbRaw(t); };
+
+/* ---------- 多人共鬥：走位戰場（房主權威 + 位置同步） ---------- */
+var _lolEnemyPosRaw = enemyPos;
+enemyPos = function (i) {
+  if (window.PB && PB.active && PB.epos && PB.epos[i]) return { x: PB.epos[i].x - 38, y: PB.epos[i].y - 85 };
+  return _lolEnemyPosRaw(i);
+};
+var _lolHeroPosRaw = heroPos;
+heroPos = function (i) {
+  if (window.PB && PB.active && PB.party && PB.party[i]) {
+    var p = PB.party[i];
+    var pos = p.pid === MP.myPid ? { x: PB.mx || 330, y: PB.my || 170 } : (PB.ppos[p.pid] || { x: 330, y: 170 });
+    return { x: pos.x - 23, y: pos.y - 58 };
+  }
+  return _lolHeroPosRaw(i);
+};
+var _lolEpbRaw = enterPartyBattle;
+enterPartyBattle = function (msg) {
+  _lolEpbRaw(msg);
+  PB.arena = true;
+  var hp0 = _lolHeroPosRaw(indexOfParty(MP.myPid));
+  PB.mx = hp0.x + 23; PB.my = hp0.y + 58;
+  PB.epos = PB.enemies.map(function (e, i) { var p = _lolEnemyPosRaw(i); return { x: p.x + 50, y: p.y + 104 }; });
+  PB.eposT = PB.epos.map(function (p) { return { x: p.x, y: p.y }; });
+  PB.ppos = {}; PB.pposT = {};
+  PB.party.forEach(function (p, i) { var hp = _lolHeroPosRaw(i); PB.ppos[p.pid] = { x: hp.x + 23, y: hp.y + 58 }; PB.pposT[p.pid] = { x: hp.x + 23, y: hp.y + 58 }; });
+  PB.moveT = null; PB.engageEi = 0; PB.holdPos = false; PB.pendingSkill = null; PB.adir = "left"; PB.amoving = false; PB.awalkT = 0;
+  document.body.classList.add("arena");
+  lolRefreshBar();
+};
+var _lolXpbRaw = exitPartyBattleUI;
+exitPartyBattleUI = function () { document.body.classList.remove("arena"); if (window.PB) PB.arena = false; _lolXpbRaw(); };
+function lolSyncPartyPos(msg) {
+  if (!window.PB || !PB.arena) return;
+  if (msg.enemies) msg.enemies.forEach(function (e, i) { if (e.bx != null) { if (!PB.eposT) PB.eposT = []; PB.eposT[i] = { x: e.bx, y: e.by }; if (!PB.epos[i]) PB.epos[i] = { x: e.bx, y: e.by }; } });
+  if (msg.party) msg.party.forEach(function (p) { if (p.bx != null && p.pid !== MP.myPid) { if (!PB.pposT) PB.pposT = {}; PB.pposT[p.pid] = { x: p.bx, y: p.by }; if (!PB.ppos[p.pid]) PB.ppos[p.pid] = { x: p.bx, y: p.by }; } });
+}
+var _lolOblRaw = onBattleLog;
+onBattleLog = function (msg) { _lolOblRaw(msg); lolSyncPartyPos(msg); };
+function lolPartyTarget() {
+  if (!PB.enemies) return -1;
+  if (PB.engageEi != null && PB.engageEi >= 0 && PB.enemies[PB.engageEi] && PB.enemies[PB.engageEi].alive) return PB.engageEi;
+  for (var i = 0; i < PB.enemies.length; i++) if (PB.enemies[i].alive) return i;
+  return -1;
+}
+function lolPartyTick(dt) {
+  if (!PB.active || !PB.arena) return;
+  var lp = Math.min(1, dt * 7), i;
+  if (PB.eposT) for (i = 0; i < PB.enemies.length; i++) { var tp = PB.eposT[i], cp = PB.epos[i]; if (tp && cp) { cp.x += (tp.x - cp.x) * lp; cp.y += (tp.y - cp.y) * lp; } }
+  if (PB.pposT) PB.party.forEach(function (p) { if (p.pid === MP.myPid) return; var tp2 = PB.pposT[p.pid], cp2 = PB.ppos[p.pid]; if (tp2 && cp2) { cp2.x += (tp2.x - cp2.x) * lp; cp2.y += (tp2.y - cp2.y) * lp; } });
+  var me = (typeof myEntry === "function") ? myEntry() : null;
+  if (!me || !me.alive || me.fled || PB.over) { PB.amoving = false; return; }
+  var mvx = (lolArrows.ArrowRight ? 1 : 0) - (lolArrows.ArrowLeft ? 1 : 0);
+  var mvy = (lolArrows.ArrowDown ? 1 : 0) - (lolArrows.ArrowUp ? 1 : 0);
+  var tx = null, ty = null;
+  if (mvx || mvy) { PB.moveT = null; PB.holdPos = true; var ml = Math.sqrt(mvx * mvx + mvy * mvy); tx = PB.mx + mvx / ml * 30; ty = PB.my + mvy / ml * 30; }
+  else if (PB.pendingSkill) {
+    var pei = PB.pendingSkill.ei, pep = pei >= 0 ? PB.epos[pei] : null;
+    if (!pep || !PB.enemies[pei].alive) PB.pendingSkill = null;
+    else if (lolDist(PB.mx, PB.my, pep.x, pep.y) <= 54) { var skid = PB.pendingSkill.id; PB.pendingSkill = null; submitIntent({ kind: "skill", skill: skid }); }
+    else { tx = pep.x; ty = pep.y; }
+  }
+  else if (PB.moveT) { tx = PB.moveT.x; ty = PB.moveT.y; if (lolDist(PB.mx, PB.my, tx, ty) < 5) { PB.moveT = null; tx = null; } }
+  else if (!PB.holdPos && PB.engageEi >= 0) {
+    var ei = lolPartyTarget();
+    if (ei >= 0 && PB.epos[ei] && lolDist(PB.mx, PB.my, PB.epos[ei].x, PB.epos[ei].y) > 48) { tx = PB.epos[ei].x; ty = PB.epos[ei].y; }
+  }
+  var moving = false;
+  if (tx != null) {
+    var mdx = tx - PB.mx, mdy = ty - PB.my, md = Math.sqrt(mdx * mdx + mdy * mdy);
+    if (md > 1) {
+      var step = 96 * dt;
+      PB.mx = lolClamp(PB.mx + mdx / md * step, 26, 454);
+      PB.my = lolClamp(PB.my + mdy / md * step, 118, 258);
+      moving = true;
+      PB.adir = Math.abs(mdx) > Math.abs(mdy) ? (mdx > 0 ? "right" : "left") : (mdy > 0 ? "down" : "up");
+    }
+  }
+  PB.amoving = moving;
+  if (moving) PB.awalkT = (PB.awalkT || 0) + dt * 9;
+  PB.ppos[MP.myPid] = { x: PB.mx, y: PB.my };
+  var now = performance.now();
+  if (now - LOL.posSentAt > 110 && lolDist(PB.mx, PB.my, LOL.sentX || -999, LOL.sentY || -999) > 2) {
+    LOL.posSentAt = now; LOL.sentX = PB.mx; LOL.sentY = PB.my;
+    mpToHost({ t: "battle-pos", sid: PB.sid, x: Math.round(PB.mx), y: Math.round(PB.my) });
+  }
+}
+function lolRenderPartyArena(t) {
+  ctx.clearRect(0, 0, VW, VH);
+  drawBattleBG(t, PB.bgKind || "forest");
+  if (PB.moveT) {
+    ctx.save(); ctx.strokeStyle = "#8fe388"; ctx.globalAlpha = 0.85; ctx.lineWidth = 1.6;
+    ctx.beginPath(); ctx.ellipse(PB.moveT.x, PB.moveT.y, 9 + Math.sin(t * 6) * 1.6, 4, 0, 0, Math.PI * 2); ctx.stroke(); ctx.restore();
+  }
+  var tei = lolPartyTarget();
+  if (tei >= 0 && PB.epos[tei] && PB.enemies[tei].alive) {
+    ctx.save();
+    ctx.strokeStyle = "#ff5a4e"; ctx.lineWidth = 1.8;
+    ctx.globalAlpha = 0.6 + Math.sin(t * 5) * 0.25;
+    ctx.beginPath(); ctx.ellipse(PB.epos[tei].x, PB.epos[tei].y + 2, 25, 8.5, 0, 0, Math.PI * 2); ctx.stroke();
+    ctx.restore();
+  }
+  PB.enemies.forEach(function (e, i) {
+    var ep = PB.epos[i]; if (!ep) return;
+    shadow(ep.x, ep.y + 2, 17, 0.35);
+    var lx = PB.lungeE[i] ? ((((PB.mx || 240) >= ep.x) ? 1 : -1) * 12 * PB.lungeE[i]) : 0;
+    ctx.save();
+    if (!e.alive) ctx.globalAlpha = 0.22;
+    drawMobSprite(e, ep.x - 38 + lx, ep.y - 85, 0.72, t, PB.hurtE[i] > 0);
+    ctx.restore();
+    ctx.save(); ctx.font = "10px sans-serif"; ctx.textAlign = "center";
+    ctx.fillStyle = e.alive ? "#ffe9a8" : "#8a97a5";
+    ctx.fillText(e.alive ? (e.name + (e.stunned ? "（暈眩）" : "")) : e.name + "（擊倒）", ep.x, ep.y - 106);
+    if (e.alive) { var w = 50; ctx.fillStyle = "rgba(10,8,4,0.72)"; ctx.fillRect(ep.x - w / 2 - 1, ep.y - 102, w + 2, 5); ctx.fillStyle = "#c8563f"; ctx.fillRect(ep.x - w / 2, ep.y - 101, w * Math.max(0, e.hp / e.maxHp), 3); }
+    ctx.restore();
+  });
+  PB.party.forEach(function (p, i) {
+    if (p.fled) return;
+    var pos = p.pid === MP.myPid ? { x: PB.mx, y: PB.my } : (PB.ppos[p.pid] || { x: 330, y: 170 });
+    shadow(pos.x, pos.y + 2, 12, 0.35);
+    var ep2 = tei >= 0 ? PB.epos[tei] : null;
+    var lx = PB.lungeP[p.pid] ? (((ep2 && ep2.x >= pos.x) ? 1 : -1) * 12 * PB.lungeP[p.pid]) : 0;
+    ctx.save();
+    if (!p.alive) ctx.globalAlpha = 0.42;
+    else if (PB.hurtP[p.pid] > 0) ctx.globalAlpha = 0.65;
+    var isMe = p.pid === MP.myPid, st;
+    if (isMe) { var dir = PB.adir || "left"; st = Object.assign({}, HERO_STYLE, { back: dir === "up", side: (dir === "left" || dir === "right") ? dir : null, flip: dir === "left", walk: PB.amoving ? (PB.awalkT || 0) : 0, bob: PB.amoving ? 0 : Math.sin(t * 2.2) * 0.5, swordHand: true }); }
+    else st = { hair: "#3a2e24", hairDark: "#2a211a", skin: "#f2c79b", tunic: tunicOf(p.pid), belt: "#3a2b18", pants: "#3d3a44", boots: "#2e2822", bob: Math.sin(t * 2.2 + i * 1.3) * 0.5, swordHand: true };
+    drawFigureFeet(pos.x + lx, pos.y + 1, 1.9, st);
+    ctx.restore();
+    ctx.save(); ctx.font = "10px sans-serif"; ctx.textAlign = "center";
+    ctx.fillStyle = isMe ? "#ffd34f" : "#fff3d0";
+    ctx.fillText(p.name, pos.x + lx, pos.y - 44);
+    ctx.restore();
+  });
+  for (var k1 in PB.hurtE) { PB.hurtE[k1] -= 0.06; if (PB.hurtE[k1] <= 0) delete PB.hurtE[k1]; }
+  for (var k2 in PB.hurtP) { PB.hurtP[k2] -= 0.06; if (PB.hurtP[k2] <= 0) delete PB.hurtP[k2]; }
+  for (var k3 in PB.lungeP) { PB.lungeP[k3] = Math.max(0, PB.lungeP[k3] - 0.14); if (!PB.lungeP[k3]) delete PB.lungeP[k3]; }
+  for (var k4 in PB.lungeE) { PB.lungeE[k4] = Math.max(0, PB.lungeE[k4] - 0.14); if (!PB.lungeE[k4]) delete PB.lungeE[k4]; }
+  drawSparks(PB.sparks);
+  for (var f = PB.floats.length - 1; f >= 0; f--) {
+    var fl2 = PB.floats[f]; fl2.t += 0.016;
+    ctx.save();
+    ctx.globalAlpha = Math.max(0, 1 - fl2.t / 1.05);
+    ctx.font = "900 16px 'Noto Sans TC', sans-serif";
+    ctx.textAlign = "center";
+    ctx.lineWidth = 3.4; ctx.strokeStyle = "rgba(20,12,4,0.85)";
+    var fy = fl2.y - fl2.t * 26;
+    ctx.strokeText(fl2.text, fl2.x, fy); ctx.fillStyle = fl2.col; ctx.fillText(fl2.text, fl2.x, fy);
+    ctx.restore();
+    if (fl2.t > 1.05) PB.floats.splice(f, 1);
+  }
+  drawParticles(t, "forest");
+  ctx.drawImage(getVignette(), 0, 0);
+}
+var _lolRpbRaw = renderPartyBattle;
+renderPartyBattle = function (t) { if (window.PB && PB.arena) lolRenderPartyArena(t); else _lolRpbRaw(t); };
+/* 房主端：位置欄位、敵人追擊、距離閘門（沿用既有結算/傷害公式） */
+var _lolEpubRaw = enemyPub;
+enemyPub = function (e) { var o = _lolEpubRaw(e); if (e.bx != null) { o.bx = Math.round(e.bx); o.by = Math.round(e.by); } return o; };
+var _lolPpubRaw = partPub;
+partPub = function (p) { var o = _lolPpubRaw(p); if (p.bx != null) { o.bx = Math.round(p.bx); o.by = Math.round(p.by); } return o; };
+var _lolHsbRaw = hostStartBattle;
+hostStartBattle = function (s) {
+  _lolHsbRaw(s);
+  if (!s || !s.enemies) return;
+  s.enemies.forEach(function (e, i) { e.bx = 140 + i * 60; e.by = 168 + (i % 2) * 30; });
+  s.order.forEach(function (pid, i) { var p = s.parts[pid]; p.bx = 330 + (i % 2) * 44; p.by = 148 + Math.floor(i / 2) * 52; });
+};
+var _lolHbtRaw = hostBattleTick;
+hostBattleTick = function (s) {
+  if (s && s.phase === "fight") {
+    for (var j = 0; j < s.enemies.length; j++) {
+      var e = s.enemies[j];
+      if (!e.alive || e.bx == null || Date.now() < e.stunnedUntil) continue;
+      var best = null, bd = 1e18;
+      s.order.forEach(function (pid) { var p = s.parts[pid]; if (p.alive && !p.fled && p.bx != null) { var d = Math.sqrt((p.bx - e.bx) * (p.bx - e.bx) + (p.by - e.by) * (p.by - e.by)); if (d < bd) { bd = d; best = p; } } });
+      if (best && bd > 40) {
+        var step = Math.min(bd - 38, 72 * 0.4);
+        e.bx = lolClamp(e.bx + (best.bx - e.bx) / bd * step, 30, 450);
+        e.by = lolClamp(e.by + (best.by - e.by) / bd * step, 122, 254);
+      }
+    }
+  }
+  _lolHbtRaw(s);
+};
+var _lolHphRaw = hostPartHit;
+hostPartHit = function (s, p, hits, mult, actName, lines) {
+  var ei = (s.enemies[p.target] && s.enemies[p.target].alive) ? p.target : firstAliveEnemy(s);
+  if (ei < 0) return;
+  var e = s.enemies[ei];
+  if (p.bx != null && e.bx != null && lolDist(p.bx, p.by, e.bx, e.by) > 58) return;
+  _lolHphRaw(s, p, hits, mult, actName, lines);
+};
+var _lolHehRaw = hostEnemyHit;
+hostEnemyHit = function (s, e, tgt, lines, ei) {
+  if (e.bx != null && tgt.bx != null && lolDist(e.bx, e.by, tgt.bx, tgt.by) > 58) return;
+  _lolHehRaw(s, e, tgt, lines, ei);
+};
+var _lolHhRaw = hostHandle;
+hostHandle = function (pid, msg) {
+  if (msg && msg.t === "battle-pos" && typeof HS !== "undefined" && HS) {
+    for (var k in HS.sessions) { var s = HS.sessions[k]; if (s.parts[pid] && s.phase === "fight") { s.parts[pid].bx = msg.x; s.parts[pid].by = msg.y; } }
+    return;
+  }
+  _lolHhRaw(pid, msg);
+};
+
+/* ---------- LoL 技能列（QWER / 藥水 / 換武器 / 鎖定 / 逃跑） ---------- */
+function lolRefreshBar() {
+  var bar = $("lolbar"); if (!bar) return;
+  var inParty = !!(window.PB && PB.active);
+  var hp, mhp, mp, mmp, cds = {}, alive = true, berserkLeft = 0;
+  if (inParty) {
+    var me = (typeof myEntry === "function") ? myEntry() : null;
+    if (!me) return;
+    hp = me.hp; mhp = me.maxHp; mp = me.mp || 0; mmp = me.maxMp || maxMp(); cds = PB.myCds || {}; alive = !!me.alive && !me.fled;
+  } else if (typeof BT !== "undefined" && BT) {
+    hp = G.hp; mhp = maxHp(); mp = BT.mp; mmp = maxMp(); cds = BT.cds || {}; berserkLeft = BT.berserkT || 0;
+  } else return;
+  $("lol-hp").style.width = Math.max(0, hp / Math.max(1, mhp) * 100) + "%";
+  $("lol-hpnum").textContent = Math.ceil(hp) + " / " + mhp;
+  $("lol-mp").style.width = Math.max(0, mp / Math.max(1, mmp) * 100) + "%";
+  $("lol-mpnum").textContent = Math.floor(mp) + " / " + mmp;
+  var ids = ["lol-q", "lol-w", "lol-e"];
+  for (var i = 0; i < 3; i++) {
+    var s = SKILLS[i], b = $(ids[i]); if (!b) continue;
+    b.querySelector(".lol-nm").textContent = s.name;
+    var learned = G.lv >= s.lv;
+    var cd = cds[s.id] || 0;
+    b.querySelector(".lol-sub").textContent = learned ? ("MP " + SKILL_COST[s.id]) : ("Lv " + s.lv);
+    b.classList.toggle("cd", cd > 0);
+    b.querySelector(".lol-cd").textContent = cd > 0 ? Math.ceil(cd) : "";
+    b.disabled = !learned || !alive;
+  }
+  var rb = $("lol-r");
+  rb.querySelector(".lol-nm").textContent = t("lol.berserk");
+  rb.querySelector(".lol-sub").textContent = berserkLeft > 0 ? Math.ceil(berserkLeft) + "s" : "12s";
+  rb.disabled = !alive || berserkLeft > 0;
+  var pb2 = $("lol-potion");
+  pb2.querySelector(".lol-nm").textContent = t("item.potion");
+  pb2.querySelector(".lol-sub").textContent = "×" + G.potions;
+  pb2.disabled = !alive || G.potions <= 0 || (!inParty && BT && BT.itemCd > 0);
+  $("lol-weapon").querySelector(".lol-nm").textContent = t("lol.weapon");
+  $("lol-weapon").querySelector(".lol-sub").textContent = WEAPONS[G.weapon].name;
+  $("lol-atk").querySelector(".lol-nm").textContent = t("lol.attack");
+  $("lol-flee").querySelector(".lol-nm").textContent = t("cmd.flee");
+}
+var _lolRbuRaw = refreshBattleUI;
+refreshBattleUI = function () { _lolRbuRaw(); lolRefreshBar(); };
+function lolSkill(i) {
+  try { ac(); } catch (e) {}
+  if (window.PB && PB.active) {
+    var me = myEntry(); if (!me || !me.alive || me.fled || PB.over) return;
+    var s = SKILLS[i];
+    if (G.lv < s.lv) { blogAdd("尚未學會「" + s.name + "」（Lv " + s.lv + " 習得）。", "sys2"); return; }
+    var ei = lolPartyTarget(); if (ei < 0) return;
+    var ep = PB.epos[ei];
+    if (ep && lolDist(PB.mx, PB.my, ep.x, ep.y) > 58) { PB.pendingSkill = { id: s.id, ei: ei }; PB.engageEi = ei; PB.holdPos = false; PB.moveT = null; return; }
+    submitIntent({ kind: "skill", skill: s.id });
+    return;
+  }
+  if (!BT || BT.over) return;
+  castSkill(SKILLS[i]);
+}
+function lolBerserk() {
+  try { ac(); } catch (e) {}
+  if (window.PB && PB.active) { var me = myEntry(); if (me && me.alive && !me.fled) submitIntent({ kind: "berserk" }); return; }
+  if (!BT || BT.over) return;
+  if (typeof cmdSoloBerserk === "function") cmdSoloBerserk();
+  lolRefreshBar();
+}
+function lolPotion() {
+  try { ac(); } catch (e) {}
+  if (window.PB && PB.active) {
+    var me = myEntry(); if (!me || !me.alive || me.fled) return;
+    if (G.potions <= 0) { blogAdd("沒有癒傷藥了！", "sys2"); return; }
+    G.potions--; saveGame(); refreshHUD();
+    try { SFX.heal(); } catch (e) {}
+    submitIntent({ kind: "item" });
+    lolRefreshBar();
+    return;
+  }
+  if (!BT || BT.over) return;
+  usePotion();
+  lolRefreshBar();
+}
+function lolWeaponCycle() {
+  try { ac(); } catch (e) {}
+  if (!G || G.weapons.length < 2) return;
+  var idx = G.weapons.indexOf(G.weapon);
+  var next = G.weapons[(idx + 1) % G.weapons.length];
+  if (next === G.weapon) return;
+  G.weapon = next;
+  try { SFX.ok(); } catch (e) {}
+  blogAdd("換上了「" + WEAPONS[next].name + "」！", "sys2");
+  if (window.PB && PB.active) { mpToHost({ t: "battle-weapon", sid: PB.sid, weapon: next }); if (typeof renderPartyPanel === "function") renderPartyPanel(); }
+  else if (typeof BT !== "undefined" && BT) refreshBattleUI();
+  saveGame(); refreshHUD(); lolRefreshBar();
+}
+function lolAttackBtn() {
+  try { ac(); } catch (e) {}
+  if (window.PB && PB.active) { var ei = lolPartyTarget(); if (ei >= 0) { PB.engageEi = ei; PB.holdPos = false; PB.moveT = null; } return; }
+  if (!BT || BT.over) return;
+  BT.engage = true; BT.moveT = null;
+}
+function lolFleeBtn() {
+  try { ac(); } catch (e) {}
+  if (window.PB && PB.active) { partyCmd("flee"); return; }
+  if (!BT || BT.over) return;
+  attemptFlee();
+}
+$("lol-q").addEventListener("click", function () { lolSkill(0); });
+$("lol-w").addEventListener("click", function () { lolSkill(1); });
+$("lol-e").addEventListener("click", function () { lolSkill(2); });
+$("lol-r").addEventListener("click", function () { lolBerserk(); });
+$("lol-potion").addEventListener("click", function () { lolPotion(); });
+$("lol-weapon").addEventListener("click", function () { lolWeaponCycle(); });
+$("lol-atk").addEventListener("click", function () { lolAttackBtn(); });
+$("lol-flee").addEventListener("click", function () { lolFleeBtn(); });
+document.addEventListener("keydown", function (e) {
+  if (e.key && e.key.indexOf("Arrow") === 0) lolArrows[e.key] = true;
+  if (mode === "gate" && (e.code === "Escape" || e.code === "KeyX")) { lolCloseGateMenu(); return; }
+  if (mode !== "battle") return;
+  if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) return;
+  if (!(window.PB && PB.active) && !(typeof BT !== "undefined" && BT)) return;
+  if (e.repeat) return;
+  if (e.code === "KeyQ") lolSkill(0);
+  else if (e.code === "KeyW") lolSkill(1);
+  else if (e.code === "KeyE") lolSkill(2);
+  else if (e.code === "KeyR") lolBerserk();
+  else if (e.code === "Digit1") lolPotion();
+});
+document.addEventListener("keyup", function (e) { if (e.key && e.key.indexOf("Arrow") === 0) lolArrows[e.key] = false; });
+window.addEventListener("blur", function () { lolArrows = {}; });
+
+/* ---------- 世界之門選單（跳關區：村口 3001 與神殿 3054 共用） ---------- */
+STR["gate.title2"] = { zh: "選擇要前往的世界", en: "Choose a World to Visit", ja: "行く世界を選ぶ", ko: "방문할 세계를 선택하세요" };
+function lolGateAreas() {
+  var list = [];
+  if (!WORLD) return list;
+  for (var ai = 0; ai < WORLD.areas.length; ai++) {
+    var entry = WORLD.areaEntry[ai];
+    if (!entry || !WORLD.rooms[entry]) continue;
+    var lvs = [];
+    for (var v in WORLD.roomMobs) {
+      var r = WORLD.rooms[v];
+      if (!r || r[4] !== ai) continue;
+      var placed = WORLD.roomMobs[v];
+      for (var j = 0; j < placed.length; j++) { var m = WORLD.mobs[placed[j]]; if (m) lvs.push(m[2]); }
+    }
+    lvs.sort(function (a, b) { return a - b; });
+    var room = WORLD.rooms[entry];
+    var intro = String(room[1] || "").replace(/\s+/g, " ").slice(0, 88);
+    list.push({ ai: ai, name: WORLD.areas[ai], entry: entry, intro: intro, n: lvs.length, min: lvs.length ? lvs[0] : 0, med: lvs.length ? lvs[Math.floor(lvs.length / 2)] : 0, max: lvs.length ? lvs[lvs.length - 1] : 0 });
+  }
+  list.sort(function (a, b) { if (a.ai === 23) return -1; if (b.ai === 23) return 1; return a.med - b.med || a.ai - b.ai; });
+  return list;
+}
+function lolOpenGateMenu(from) {
+  if (!WORLD || !worldReady) { showDialog([{ text: t("gate.loading") }]); return; }
+  LOL.gateFrom = from;
+  lolCancelNav();
+  mode = "gate";
+  document.querySelector("#gateov .c-kicker").textContent = t("gate.worldName");
+  document.querySelector("#gateov h2").textContent = t("gate.title2");
+  $("gate-note").textContent = t("gate.hint");
+  $("gate-close").textContent = t("ui.close");
+  var healBtn = $("gate-heal");
+  healBtn.style.display = from === "temple" ? "" : "none";
+  healBtn.textContent = t("gate.healBtn");
+  var curAi = null;
+  if (isStockRoom()) { var r0 = sRoom(stockVnum()); if (r0) curAi = r0[4]; }
+  var box = $("gate-list"); box.innerHTML = "";
+  lolGateAreas().forEach(function (it) {
+    var b = document.createElement("button");
+    b.className = "gate-item" + (it.ai === curAi ? " here" : "");
+    b.type = "button";
+    b.disabled = it.ai === curAi;
+    var top = document.createElement("div"); top.className = "g-top";
+    var nm = document.createElement("span"); nm.className = "g-name"; nm.textContent = it.name;
+    if (it.ai === 23) { var tg = document.createElement("span"); tg.className = "g-tag"; tg.textContent = t("gate.main"); nm.appendChild(tg); }
+    if (WORLD.orphans.indexOf(it.ai) >= 0) { var tg2 = document.createElement("span"); tg2.className = "g-tag orphan"; tg2.textContent = t("gate.orphan"); nm.appendChild(tg2); }
+    top.appendChild(nm);
+    var lv = document.createElement("span"); lv.className = "g-lv";
+    lv.textContent = it.ai === curAi ? t("gate.here") : (it.n ? (t("gate.recLv") + " Lv " + Math.max(1, it.med) + "（" + it.min + "–" + it.max + "）") : t("gate.noMobs"));
+    top.appendChild(lv);
+    b.appendChild(top);
+    if (it.intro) { var inEl = document.createElement("div"); inEl.className = "g-intro"; inEl.textContent = it.intro; b.appendChild(inEl); }
+    b.addEventListener("click", function () { lolGateTravel(it.ai); });
+    box.appendChild(b);
+  });
+  $("gateov").classList.add("show");
+}
+function lolCloseGateMenu() {
+  $("gateov").classList.remove("show");
+  if (mode === "gate") mode = "explore";
+}
+function lolGateTravel(ai) {
+  var dest = ai === 23 ? 3005 : (G.areaEntry[ai] || WORLD.areaEntry[ai]);
+  G.gateFrom = LOL.gateFrom === "village" ? "village" : "temple";
+  G.gateBack = dest;
+  try { SFX.ok(); } catch (e) {}
+  lolCloseGateMenu();
+  travelLockUntil = performance.now() + 800;
+  fadeSwap(function () { enterStockRoom(dest, { x: 240, y: 200, dir: "up" }); });
+  saveGame();
+}
+var _lolOwgRaw = openWorldGate;
+openWorldGate = function () { lolOpenGateMenu((typeof isStockRoom === "function" && isStockRoom() && stockVnum() === 3054) ? "temple" : "village"); };
+var _lolSiRaw = stockInteract;
+stockInteract = function () {
+  if (G && G.gateBack && isStockRoom() && stockVnum() === G.gateBack && stockVnum() !== 3054 && !orphanEntryHere() && near(240, 118, 48)) { openReturnGate(); return; }
+  _lolSiRaw();
+};
+$("gate-close").addEventListener("click", function () { try { SFX.ok(); } catch (e) {} lolCloseGateMenu(); });
+$("gate-heal").addEventListener("click", function () { lolCloseGateMenu(); healAtAltar(); });
+$("gateov").addEventListener("click", function (e) { if (e.target === $("gateov")) lolCloseGateMenu(); });
+
+/* ---------- 主驅動 ---------- */
+setInterval(function () {
+  var now = performance.now();
+  var dt = Math.min(0.05, (now - LOL.lastTick) / 1000 || 0.016);
+  LOL.lastTick = now;
+  if (mode === "explore" && G) lolNavTick(dt);
+  else if (LOL.nav) lolCancelNav();
+  if (mode === "battle") {
+    if (window.PB && PB.active) lolPartyTick(dt);
+    else if (typeof BT !== "undefined" && BT && BT.arena) lolArenaTick(dt);
+  }
+}, 16);
+setInterval(function () { if (document.body.classList.contains("arena")) lolRefreshBar(); }, 250);
+
+/* ================================================================
+   難度模式：現代模式（友善調整）／真實模式（1996 原作 EnvyMUD 規則）
+   原作數值來源：EnvyMUD 原始碼 const.c class_table（Warrior 列）、
+   update.c advance_level、fight.c do_flee、school.are 起始配備。
+   ================================================================ */
+Object.assign(STR, {
+  "mode.label": { zh: "模式", en: "Mode", ja: "モード", ko: "모드" },
+  "mode.modern": { zh: "現代模式", en: "Modern Mode", ja: "モダンモード", ko: "모던 모드" },
+  "mode.real": { zh: "真實模式", en: "Real Mode (1996 Original)", ja: "リアルモード", ko: "리얼 모드" },
+  "mode.modernShort": { zh: "現代", en: "Modern", ja: "モダン", ko: "모던" },
+  "mode.realShort": { zh: "真實", en: "Real", ja: "リアル", ko: "리얼" },
+  "mode.selectTitle": { zh: "選擇難度模式", en: "Choose Difficulty Mode", ja: "難易度モード選択", ko: "난이도 모드 선택" },
+  "mode.selectSub": { zh: "選定後，整個冒險都依此規則進行，模式會存進存檔。", en: "The whole adventure follows the chosen rules; the mode is stored in your save.", ja: "選んだルールで冒険全体が進行し、モードはセーブに記録されます。", ko: "선택한 규칙으로 모험 전체가 진행되며, 모드는 저장 파일에 기록됩니다." },
+  "mode.modernDesc": { zh: "友善調整版：HP 成長 +8／級・起始武器「短劍」・敵人傷害封頂（一般怪 ≤ 最大 HP 10%、強壯生物 ≤ 30%）・癒傷藥 20 G・神殿祭壇免費回滿・逃跑無懲罰。", en: "Friendly tuning: HP +8/level, starting weapon Short Sword, enemy damage capped (normal ≤10% max HP, strong ≤30%), potions 20 G, free full heal at the temple altar, no flee penalty.", ja: "親しみやすい調整版：HP成長 +8／レベル、初期武器「短剣」、敵ダメージ上限あり（通常 ≤最大HP10%、強大な生物 ≤30%）、ポーション 20G、神殿の祭壇で無料全回復、逃走ペナルティなし。", ko: "친화적 조정판: HP 성장 +8/레벨, 시작 무기 숏소드, 적 피해 상한(일반 ≤최대 HP 10%, 강한 생물 ≤30%), 포션 20G, 신전 제단 무료 전회복, 도주 페널티 없음." },
+  "mode.realDesc": { zh: "⚠ 1996 原作 EnvyMUD 規則：HP 成長擲骰（戰士職 11–15 ＋ 體質加成 2）・起始配備：配發劍＋背心＋盾・敵人傷害「不封頂」，一擊可能打掉大半 HP・癒傷藥 100 G・神殿祭壇不提供免費回復・逃跑成功 −25 經驗、失敗 −10 經驗，狂暴中不能逃。", en: "⚠ The 1996 EnvyMUD original rules: HP growth is rolled (Warrior 11–15 + CON bonus 2), starting kit is a sub issue sword + vest + shield, enemy damage is UNCAPPED — one hit can take most of your HP, potions cost 100 G, the altar gives no free healing, fleeing costs 25 EXP on success and 10 EXP on failure, and you cannot flee while berserk.", ja: "⚠ 1996年原作 EnvyMUD のルール：HP成長はダイス（戦士職 11–15 ＋ 体力ボーナス2）、初期装備は支給の剣＋ベスト＋盾、敵ダメージに上限なし（一撃でHPの大半を失うことも）、ポーション 100G、祭壇の無料回復なし、逃走は成功 −25 EXP・失敗 −10 EXP、バーサーク中は逃走不可。", ko: "⚠ 1996 원작 EnvyMUD 규칙: HP 성장은 주사위(전사 직업 11–15 + 체력 보너스 2), 시작 장비는 지급 검+조끼+방패, 적 피해 상한 없음(한 방에 HP 대부분을 잃을 수 있음), 포션 100G, 제단 무료 회복 없음, 도주 성공 시 −25 EXP·실패 시 −10 EXP, 광폭화 중 도주 불가." },
+  "mode.note": { zh: "既有舊存檔自動歸類為現代模式，進度與裝備不變。", en: "Existing saves are automatically classed as Modern Mode, with progress and equipment unchanged.", ja: "既存のセーブは自動的にモダンモードとなり、進行度と装備はそのままです。", ko: "기존 저장 파일은 자동으로 모던 모드로 분류되며 진행도와 장비는 그대로입니다." },
+  "mode.fleeOkReal": { zh: "你逃離了戰鬥！（真實模式：損失 {n} 經驗）", en: "You flee from combat! (Real Mode: lost {n} EXP)", ja: "戦闘から逃げた！（リアルモード：経験値 {n} 喪失）", ko: "전투에서 도망쳤다! (리얼 모드: 경험치 {n} 손실)" },
+  "mode.fleeFailReal": { zh: "沒能逃掉！（真實模式：損失 {n} 經驗）", en: "You failed to flee! (Real Mode: lost {n} EXP)", ja: "逃げられなかった！（リアルモード：経験値 {n} 喪失）", ko: "도망치지 못했다! (리얼 모드: 경험치 {n} 손실)" },
+  "mode.fleeBerserk": { zh: "狂暴中無法逃跑！（原作規則）", en: "You can't flee — you're BERSERK! (original rule)", ja: "バーサーク中は逃げられない！（原作ルール）", ko: "광폭화 중에는 도망칠 수 없다! (원작 규칙)" },
+  "mode.altarReal": { zh: "祭壇沉默不語——真實模式下沒有免費的回復。原作裡治療得找治療師付費，或靠休息、睡眠與藥水慢慢回。", en: "The altar stays silent — Real Mode offers no free healing. In the original you paid a healer, or recovered slowly by resting, sleeping and potions.", ja: "祭壇は沈黙している——リアルモードに無料回復はない。原作では治療師に払うか、休息・睡眠・ポーションで少しずつ回復した。", ko: "제단은 침묵한다 — 리얼 모드에는 무료 회복이 없다. 원작에서는 치료사에게 돈을 내거나, 휴식·수면·포션으로 천천히 회복했다." }
+});
+try { STR["ui.note"].zh += "・新冒險可選現代／真實模式"; STR["ui.note"].en += " - New adventures choose Modern / Real mode"; } catch (e) {}
+(function () { var tn = document.querySelector("#title .t-note"); if (tn) tn.innerHTML = t("ui.note"); })();
+
+function lolMode() { return (typeof G !== "undefined" && G && G.mode === "real") ? "real" : "modern"; }
+function lolMaxHpFor(g) {
+  if (!g) return 58;
+  if (g.mode === "real") return 58 + (g.hpGain || 0) + (g.armor ? 10 : 0);
+  return 58 + ((g.lv || 1) - 1) * 8 + (g.armor ? 10 : 0);
+}
+/* HP 成長：現代 +8/級（舊 +13）；真實用原作擲骰累積 hpGain */
+maxHp = function () { return lolMaxHpFor(G); };
+/* 敵人傷害上限：真實模式取消（LOL_CAP_MODE 可由房主端依目標玩家模式覆寫） */
+var LOL_CAP_MODE = null;
+var _foeCapRawM = foeDmgCap;
+foeDmgCap = function (targetMaxHp, isStrong) {
+  if ((LOL_CAP_MODE || lolMode()) === "real") return Infinity;
+  return _foeCapRawM(targetMaxHp, isStrong);
+};
+/* 商店價格：真實模式癒傷藥回原作 100 G（list/buy/sell/value 全走 cmdPriceOf） */
+var _cmdPriceRawM = cmdPriceOf;
+cmdPriceOf = function (it) {
+  if (it && it.kind === "potion" && lolMode() === "real") return 100;
+  return _cmdPriceRawM(it);
+};
+/* 讀檔：舊存檔歸類現代模式；新公式下當前 HP 不得超過新上限（只下修到上限，不砍進危險值） */
+var _loadRawM = loadGame;
+loadGame = function () {
+  var d = _loadRawM();
+  if (d) {
+    if (d.mode !== "real") d.mode = "modern";
+    if (typeof d.hpGain !== "number") d.hpGain = 0;
+    var mh = lolMaxHpFor(d);
+    if (d.hp > mh) d.hp = mh;
+  }
+  return d;
+};
+var _ngsRawM = newGameState;
+newGameState = function () { var s = _ngsRawM(); s.mode = "modern"; s.hpGain = 0; return s; };
+/* 升級擲骰（真實模式）：原作 advance_level = 體質加成 + number_range(hp_min, hp_max)，戰士職 11–15、體質加成 +2 */
+function lolRollHpGain(levels) { var tot = 0; for (var i = 0; i < levels; i++) tot += 11 + Math.floor(Math.random() * 5) + 2; return tot; }
+var _winRawM = winBattle;
+winBattle = function () {
+  var lvB = G.lv;
+  _winRawM();
+  if (lolMode() === "real" && G.lv > lvB) { G.hpGain = (G.hpGain || 0) + lolRollHpGain(G.lv - lvB); saveGame(); }
+};
+var _applyRawM = doApplyResult;
+doApplyResult = function (msg) {
+  if (msg && msg.fled && msg.expLoss) { G.exp = Math.max(0, G.exp - msg.expLoss); }
+  var lvB = G.lv;
+  _applyRawM(msg);
+  if (lolMode() === "real" && G.lv > lvB) { G.hpGain = (G.hpGain || 0) + lolRollHpGain(G.lv - lvB); refreshHUD(); saveGame(); }
+};
+var _mpdRawM = mpDispatch;
+mpDispatch = function (msg) {
+  if (msg && msg.t === "battle-flee-exp") {
+    G.exp = Math.max(0, G.exp - (msg.loss || 0));
+    blogAdd(t("mode.fleeFailReal", { n: msg.loss || 0 }), "bad");
+    refreshHUD(); saveGame();
+    return;
+  }
+  return _mpdRawM(msg);
+};
+/* HUD 模式徽章 + 選單模式列 */
+var _hudRawM = refreshHUD;
+refreshHUD = function () {
+  _hudRawM();
+  var c = $("hud-mode");
+  if (c) { var r = lolMode() === "real"; c.textContent = t(r ? "mode.realShort" : "mode.modernShort"); c.className = "modechip" + (r ? " real" : ""); }
+};
+var _omRawM = openMenu;
+openMenu = function () {
+  _omRawM();
+  var ml = $("m-modelabel"); if (ml) ml.textContent = t("mode.label");
+  var mm = $("m-mode"); if (mm) mm.textContent = t(lolMode() === "real" ? "mode.real" : "mode.modern");
+};
+/* 神殿祭壇：真實模式不提供免費回滿（原作作法） */
+var _healRawM = healAtAltar;
+healAtAltar = function () {
+  if (lolMode() === "real") { showDialog([{ who: t("gate.worldName"), text: t("mode.altarReal") }]); return; }
+  return _healRawM();
+};
+/* 逃跑：真實模式照原作 do_flee——依房間出口數擲 6 次門；成功 −25 exp、失敗 −10 exp 且留在戰鬥（無額外免費攻擊）；狂暴中不可逃 */
+function lolExitCount() {
+  try {
+    if (typeof S !== "undefined" && S && S.room) { var e = S.room[3] || {}; var n = 0; ["n", "s", "e", "w"].forEach(function (d) { if (e[d]) n++; }); return Math.max(1, n); }
+    var r = ROOMS[G.room];
+    if (r && r.exits) { var n2 = 0; for (var k in r.exits) n2++; return Math.max(1, n2); }
+  } catch (e) {}
+  return 3;
+}
+var _fleeRawM = attemptFlee;
+attemptFlee = function () {
+  if (lolMode() !== "real" || !BT || BT.over) return _fleeRawM();
+  if (BT.fleeLock > 0) return;
+  BT.fleeLock = 1.2;
+  if (BT.berserkT > 0) { blogAdd(t("mode.fleeBerserk"), "bad"); refreshBattleUI(); return; }
+  var pFail = Math.pow((6 - lolExitCount()) / 6, 6);
+  if (Math.random() < pFail) {
+    var lossF = Math.min(G.exp, 10); G.exp -= lossF;
+    try { SFX.miss(); } catch (e) {}
+    blogAdd(t("mode.fleeFailReal", { n: lossF }), "bad");
+    refreshBattleUI(); refreshHUD(); saveGame();
+    return;
+  }
+  var loss = Math.min(G.exp, 25); G.exp -= loss;
+  BT.over = true;
+  try { SFX.flee(); } catch (e) {}
+  blogAdd(t("mode.fleeOkReal", { n: loss }), "good");
+  refreshHUD(); saveGame();
+  setTimeout(function () { endBattle(); }, 750);
+};
+/* 多人：把玩家模式帶進 myStats → 房主 parts；房主結算傷害/逃跑依「目標玩家」的模式 */
+var _statsRawM = myStats;
+myStats = function () { var s = _statsRawM(); s.mode = lolMode(); return s; };
+var _hapRawM = hostAddPart;
+hostAddPart = function (s, pid, stats, isInit) {
+  _hapRawM(s, pid, stats, isInit);
+  if (s && s.parts && s.parts[pid]) s.parts[pid].mode = (stats && stats.mode === "real") ? "real" : "modern";
+};
+var _hehRawM = hostEnemyHit;
+hostEnemyHit = function (s, e, tgt, lines, ei) {
+  var prev = LOL_CAP_MODE;
+  LOL_CAP_MODE = tgt ? (tgt.mode === "real" ? "real" : "modern") : null;
+  try { return _hehRawM(s, e, tgt, lines, ei); } finally { LOL_CAP_MODE = prev; }
+};
+var _hiRawM = hostIntent;
+hostIntent = function (s, pid, intent) {
+  var part = s && s.parts ? s.parts[pid] : null;
+  if (intent && intent.kind === "flee" && part && part.mode === "real" && part.alive && !part.fled && s.phase === "fight") {
+    var lines = [];
+    if (part.berserkUntil && part.berserkUntil > Date.now()) {
+      lines.push({ k: "msg", text: part.name + " " + t("mode.fleeBerserk"), cls: "bad" });
+      hostPushLog(s, lines);
+      return;
+    }
+    var pFail = Math.pow((6 - lolExitCount()) / 6, 6);
+    if (Math.random() < pFail) {
+      lines.push({ k: "msg", text: part.name + " 想逃跑——沒能逃掉！", cls: "bad" });
+      hostSend(pid, { t: "battle-flee-exp", sid: s.sid, loss: 10 });
+      hostPushLog(s, lines);
+      return;
+    }
+    part.fled = true; part.alive = false;
+    hostSend(pid, { t: "battle-result", sid: s.sid, fled: true, hpAfter: part.hp, won: false, exp: 0, gold: 0, downed: false, key: s.def.key, stock: null, expLoss: 25 });
+    var lm = { t: "battle-left", sid: s.sid, pid: pid, reason: "flee" };
+    s.order.forEach(function (p2) { hostSend(p2, lm); });
+    lines.push({ k: "msg", text: part.name + " 逃離了戰鬥。（真實模式：損失 25 經驗）", cls: "sys2" });
+    hostPushLog(s, lines);
+    if (s.phase === "fight" && (firstAliveEnemy(s) < 0 || !anyActivePart(s))) hostFinishBattle(s, firstAliveEnemy(s) < 0);
+    return;
+  }
+  return _hiRawM(s, pid, intent);
+};
+/* 開局模式選擇：攔截「開始新冒險」（capture 先於按鈕自身 handler），選完再走原流程 */
+function lolFillModeTexts() {
+  $("mode-title").textContent = t("mode.selectTitle");
+  $("mode-sub").textContent = t("mode.selectSub");
+  $("mode-modern-name").textContent = t("mode.modern");
+  $("mode-modern-desc").textContent = t("mode.modernDesc");
+  $("mode-real-name").textContent = t("mode.real");
+  $("mode-real-desc").textContent = t("mode.realDesc");
+  $("mode-note").textContent = t("mode.note");
+}
+document.addEventListener("click", function (e) {
+  if (!e.target || !e.target.closest || !e.target.closest("#btn-new")) return;
+  e.preventDefault(); e.stopPropagation();
+  try { ac(); SFX.ok(); } catch (err) {}
+  lolFillModeTexts();
+  $("modeov").classList.add("show");
+}, true);
+$("mode-modern").addEventListener("click", function () { try { SFX.ok(); } catch (e) {} lolChooseMode("modern"); });
+$("mode-real").addEventListener("click", function () { try { SFX.ok(); } catch (e) {} lolChooseMode("real"); });
+function lolChooseMode(m) {
+  $("modeov").classList.remove("show");
+  G = newGameState();
+  G.mode = m;
+  if (m === "real") {
+    /* 原作新角色配備（EnvyMUD）：職業武器（戰士＝配發劍 2d3）＋配發背心＋配發盾 */
+    G.weapons = ["subsword"]; G.weapon = "subsword";
+    G.armor = true; G.ownArmor = true;
+    G.ownShield = true; G.eqShield = true;
+    G.hpGain = 0;
+  } else {
+    G.weapons = ["ssword"]; G.weapon = "ssword";
+  }
+  G.hp = lolMaxHpFor(G);
+  askName(function () { beginAdventure(true); });
+}
 </script>
 </body>
 </html>
