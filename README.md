@@ -4,7 +4,9 @@ HD-2D 像素風網頁遊戲，改編自 MUD《Delanta》與原版 EnvyMUD 世界
 
 ## 玩法
 
-直接用瀏覽器打開 `index.html` 即可遊玩（或透過 GitHub Pages 以網頁方式開啟）。
+**線上直接玩：https://doraemon332.github.io/delanta-game/**（GitHub Pages，免安裝）
+
+或下載後用瀏覽器打開 `index.html` 即可遊玩。
 
 - 移動：方向鍵 / WASD / 手機虛擬方向鍵
 - 互動：點選畫面物件，或在下方輸入列打 MUD 指令（`kill`、`say`、`gossip`、`inventory`、`equipment`、`score` 等原版指令）
@@ -29,7 +31,9 @@ An HD-2D pixel-art web game adapted from the MUD *Delanta* and the original Envy
 
 ## How to play
 
-Just open `index.html` in a browser (or play it via GitHub Pages).
+**Play online: https://doraemon332.github.io/delanta-game/** (GitHub Pages, no install needed)
+
+Or download the repo and open `index.html` in a browser.
 
 - Move: arrow keys / WASD / on-screen D-pad on mobile
 - Interact: click objects on screen, or type original MUD commands in the input bar (`kill`, `say`, `gossip`, `inventory`, `equipment`, `score`, and more)
