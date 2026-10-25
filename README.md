@@ -4,7 +4,7 @@ HD-2D 像素風網頁遊戲，改編自 MUD《Delanta》與原版 EnvyMUD 世界
 
 ## 玩法
 
-**線上直接玩：https://doraemon332.github.io/delanta-game/**（GitHub Pages，免安裝）
+**線上直接玩：https://doragonia332.github.io/delanta-game/**（GitHub Pages，免安裝）
 
 或下載後用瀏覽器打開 `index.html` 即可遊玩。
 
@@ -31,7 +31,7 @@ An HD-2D pixel-art web game adapted from the MUD *Delanta* and the original Envy
 
 ## How to play
 
-**Play online: https://doraemon332.github.io/delanta-game/** (GitHub Pages, no install needed)
+**Play online: https://doragonia332.github.io/delanta-game/** (GitHub Pages, no install needed)
 
 Or download the repo and open `index.html` in a browser.
 
