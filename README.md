@@ -22,7 +22,7 @@ HD-2D 像素風網頁遊戲，改編自 MUD《Delanta》與原版 EnvyMUD 世界
 
 ## 原作
 
-- MUD 原始碼：https://github.com/doraemon332/Delanta
+- MUD 原始碼：https://github.com/doragonia332/Delanta
 - Stock 世界來源：https://github.com/lolindrath/EnvyMUD
 
 ---
@@ -51,5 +51,5 @@ Or download the repo and open `index.html` in a browser.
 
 ## Original works
 
-- MUD source code: https://github.com/doraemon332/Delanta
+- MUD source code: https://github.com/doragonia332/Delanta
 - Stock world source: https://github.com/lolindrath/EnvyMUD
